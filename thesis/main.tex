@@ -1,10 +1,10 @@
 % **********************************************************************
 % Copyright 2025 ULFPP
 
-% Author: Dejan ŽAGAR, Aleksander GRM, Franc DIMC
+% Author: A.S.Grm, D. Žagar, F. Dimc
 % Description: This is an official latex ULFPP thesis template.
 % Version: 1.0
-% Date: 20/06/2025
+% Date: 03/09/2025
 % **********************************************************************
 
 \documentclass[pomnav, tisk]{fppthesis}
@@ -50,9 +50,6 @@
 \usepackage{ninecolors}
 \selectcolormodel{rgb}
 \usepackage{tabularray}
-
-% okolje za citiranje: oglati oklepaji s številko
-\usepackage[sort, numbers]{natbib}
 
 %
 % *** Caption to be bold face ***
@@ -149,6 +146,14 @@ vsebine.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LITERATURA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[backend=biber,style=numeric,sortcites]{biblatex}
+\addbibresource{literatura.bib} % ime datoteke, ki vsebuje literaturo
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ZAČETEK VSEBINE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -220,6 +225,9 @@ V zaključku navedete na kratko, kaj je bilo narejeno in zaključite kaj bi lahk
 % ******************
 % *** Literatura ***
 % ******************
-\vkljucibibliografijo{literatura}
+\cleardoublepage
+\singlespacing
+\addcontentsline{toc}{section}{Literatura}
+\printbibliography
 
 \end{document}

@@ -1,7 +1,7 @@
 % **********************************************************************
-% Copyright 2025 ULFPP
+% Copyright 2025 ULFPP (povzeto po FMF predlogi)
 
-% Author: Aleksander GRM @fpp.uni-lj.si
+% Author: Aleksander Sandro GRM @fpp.uni-lj.si
 % Description: This is an official latex ULFPP report class template.
 % Version: 1.0
 % Date: 20/06/2025
@@ -149,16 +149,9 @@
 \newcommand{\mentorici}{\@dodajdvamentorja{Mentorici}{mentoric}}
 \newcommand{\somentorici}{\@dodajdvamentorja{Somentorici}{somentoric}}
 
-\newcommand{\vkljucibibliografijo}[1]{%
-	\cleardoublepage
-	\singlespacing
-	\addcontentsline{toc}{section}{Literatura}
-	\bibliographystyle{plainnat}
-	\bibliography{#1}
-}
-
 \newboolean{@anglescina}
 \setboolean{@anglescina}{false} % or true, depending on your default
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % IZPIS PDF/A

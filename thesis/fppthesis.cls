@@ -1,10 +1,10 @@
 % **********************************************************************
-% Copyright 2025 ULFPP
+% Copyright 2025 ULFPP (povzeto po FMF predlogi)
 
-% Author: Aleksander GRM @fpp.uni-lj.si
+% Author: Aleksander Sandro GRM @fpp.uni-lj.si
 % Description: This is an official latex ULFPP thesis class template.
 % Version: 1.0
-% Date: 20/06/2025
+% Date: 03/09/2025
 % **********************************************************************
 
 \NeedsTeXFormat{LaTeX2e}
@@ -215,15 +215,6 @@
 \newcommand{\cosupervisor}[1]{\@addsupervisor{Co-supervisor}{Co-supervisor's}{#1}}
 \newcommand{\supervisors}[2]{\@addsupervisors{Supervisors}{Supervisors'}{#1}{#2}}
 \newcommand{\cosupervisors}[2]{\@addsupervisors{Co-supervisors}{Co-supervisors'}{#1}{#2}}
-
-
-\newcommand{\vkljucibibliografijo}[1]{%
-	\cleardoublepage
-	\singlespacing
-	\addcontentsline{toc}{section}{Literatura}
-	\bibliographystyle{plainnat}
-	\bibliography{#1}
-}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
