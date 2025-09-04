@@ -21,9 +21,9 @@
 %  - prom2:    promet, 2. stopnja
 %
 
-% **********************************************************************
-% !!! POMEMBNO: Predloga je narejena za prevajanje z pdflatex ukazom !!!
-% **********************************************************************
+% *******************************************************************************
+% !!! POMEMBNO: Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
+% *******************************************************************************
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,8 +149,15 @@ vsebine.}
 % LITERATURA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% numeričen tip citiranja
 \usepackage[backend=biber,style=numeric,sortcites]{biblatex}
-\addbibresource{literatura.bib} % ime datoteke, ki vsebuje literaturo
+
+% APA stil citiranja, kjer se oklepaji dosežejo z uporabo ukaza
+%   \parencite{} namesto \cite
+%\usepackage[backend=biber,style=apa,sortcites]{biblatex}
+
+%ime datoteke, ki vsebuje navedeno literaturo
+\addbibresource{literatura.bib}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
