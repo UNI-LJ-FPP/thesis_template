@@ -146,15 +146,21 @@ vsebine.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LITERATURA
+% LITERATURA in stil citiranja
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% numeričen tip citiranja
-\usepackage[backend=biber,style=numeric,sortcites]{biblatex}
+% *** Stil citiranja ***
+%
+% Pri stilu citiranja lahko izberemo med dvema možnostima
+%  - numeričen: citiranje izvede preko številk v oglatih oklepajih, recimo [1]
+%  - apa6: citiranje izvede z uporabo priimka avtorja in letnice, recimo Grossman, 1996
 
-% APA stil citiranja, kjer se oklepaji dosežejo z uporabo ukaza
+% numeričen tip citiranja
+%\usepackage[backend=biber,style=numeric,sortcites]{biblatex}
+
+% APA6 stil citiranja, kjer se oklepaji dosežejo z uporabo ukaza
 %   \parencite{} namesto \cite
-%\usepackage[backend=biber,style=apa,sortcites]{biblatex}
+\usepackage[backend=biber,style=apa,sortcites]{biblatex}
 
 %ime datoteke, ki vsebuje navedeno literaturo
 \addbibresource{literatura.bib}
@@ -193,7 +199,14 @@ Po uvodu pričnemo z opisom \textit{Materialov in metod}, ki jih v nalogi uporab
 \section{Materiali in metode}
 \label{sec:Materiali}
 
-V tem poglavju natančno opišete uporabljeno opremo in postopke dela z opremo. Mogoče v začetnem delu opišete teoretične osnovne principe, ki jih boste uporabljali. Recimo pri določanju upora ladje s pomočjo meritev modela v bazenu, se opiše Frudejev princip \cite{froude1888resistance}.
+V tem poglavju natančno opišete uporabljeno opremo in postopke dela z opremo. Mogoče v začetnem delu opišete teoretične osnovne principe, ki jih boste uporabljali. Recimo pri določanju upora ladje s pomočjo meritev modela v bazenu, se uporabi Frudejev princip, ki je bil opisan v \cite{froude1888resistance}. To je bil primer citiranja.
+
+Za APA stil citiranja z oklepaji je potrebno uporabiti namesto klasičnega ukaza \texttt{$\backslash$cite\{\}} ukaz \texttt{$\backslash$parencite\{\}}, ki izpiše citiranje v oklepajih. Primerjava uporaba obeh načinov citiranja za zgornji zgled je videt kot:
+
+\begin{itemize}
+	\item \texttt{$\backslash$cite\{\}}: \cite{froude1888resistance},
+	\item \texttt{$\backslash$parencite\{\}}: \parencite{froude1888resistance}
+\end{itemize}
 
 % *** Podpoglavje ***
 \subsection{Opis trenja}
