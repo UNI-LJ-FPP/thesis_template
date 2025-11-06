@@ -39,29 +39,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DODATNI PAKETI in FUNKCIONALNOSTI
+% 
+% WARNING: minimalno, da v OverLeaf prevede v kratkem času. Če boste dodali
+%          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
+% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{enumitem} % oklje za naštevanje
-\usepackage{parskip}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{mathtools}
-\usepackage{amsmath,amsthm,amssymb,latexsym}
-\usepackage{datetime}
-\usepackage{fancyhdr}
-\usepackage{emptypage}
-\usepackage{siunitx}
-\usepackage{extarrows}% http://ctan.org/pkg/extarrows
+\usepackage[pdftex]{hyperref}
+\usepackage{enumitem}   % okolje za naštevanje
+\usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
+\usepackage{csquotes}   % biber potrebuje
+\usepackage{tabularray} % za lepo urejene tabele
 
 % okolja za lepe tabele
-\usepackage{booktabs} % fancy tables
-\usepackage[rgb]{xcolor}
-\selectcolormodel{natural}
-\usepackage{ninecolors}
-\selectcolormodel{rgb}
-\usepackage{tabularray}
-\usepackage{csquotes}
+\usepackage{booktabs} % za izdelavo fancy tables
 
 %
 % *** Caption to be bold face ***
@@ -203,11 +193,10 @@ Po uvodu pričnemo z opisom \textit{Materialov in metod}, ki jih v nalogi uporab
 
 V tem poglavju natančno opišete uporabljeno opremo in postopke dela z opremo. Mogoče v začetnem delu opišete teoretične osnovne principe, ki jih boste uporabljali. Recimo pri določanju upora ladje s pomočjo meritev modela v bazenu, se uporabi Frudejev princip, ki je bil opisan v \cite{froude1888resistance}. To je bil primer citiranja.
 
-Za APA stil citiranja z oklepaji je potrebno uporabiti namesto klasičnega ukaza \texttt{$\backslash$cite\{\}} ukaz \texttt{$\backslash$parencite\{\}}, ki izpiše citiranje v oklepajih. Primerjava uporaba obeh načinov citiranja za zgornji zgled je videt kot:
+Za APA stil citiranja, kjer bi radi uporabili oklepaje, preprosto naredite oklepaje okoli \texttt{cite} ukaza
 
 \begin{itemize}
-	\item \texttt{$\backslash$cite\{\}}: \cite{froude1888resistance},
-	\item \texttt{$\backslash$parencite\{\}}: \parencite{froude1888resistance}
+	\item \texttt{(\textbackslash cite\{froude1888resistance\})}: kar izvede (\cite{froude1888resistance})
 \end{itemize}
 
 % *** Podpoglavje ***
@@ -229,6 +218,32 @@ Rezultati vsebujejo vse kar ste izmerili izračunali in podobno, vaši lastni do
 \subsection{Obdelava podatkov}
 
 Tukaj opišem način obdelave podatkov in prikažem dobljene rezultate ter jih natančno opišem.
+
+\begin{table}[h]
+	\caption{Primerjava med tovornima pristaniščema Koper in Reka.}
+	\label{tab:primer_tabele1}
+	\begin{center}
+		\begin{tblr}{colspec={l|rr},
+				%width=0\textwidth,
+				row{even} = {white,font=\small},
+				row{odd} = {bg=black!10,font=\small},
+				row{1} = {bg=blue!20,font=\bfseries\small},
+				hline{1} = {1pt,solid,black!60},
+				hline{2} = {1pt,solid,black!60},
+				hline{Z} = {1pt,solid,black!60},
+				rowsep=3pt
+			}
+			% *** začetek podatko ***
+			& Pretovor & TEU    & TEU/dvigalo & m3 \\ 
+			Koper  & 353,880  &	88,470 & 594         & 12 \\
+			Rijeka & 168,777  &	42,194 & 328         &	6
+			% *** konec podatkov ***
+		\end{tblr}
+	\end{center}
+	\begin{flushright}
+		Vir:(Beškovnik in Twrdy, 2009)
+	\end{flushright}
+\end{table}
 
 
 % *********************
