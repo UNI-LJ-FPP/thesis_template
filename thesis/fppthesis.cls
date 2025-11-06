@@ -8,7 +8,7 @@
 % **********************************************************************
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fppthesis}[2025/07/10 Zakljucna dela na FPP]
+\ProvidesClass{fppthesis}[2025/09/03 Zakljucna dela na FPP]
 
 % ******************************************************************
 % !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
@@ -43,8 +43,9 @@
 \newboolean{@tisk}
 \newcommand{\@sloeng}[2]{\ifthenelse{\boolean{@anglescina}}{#2}{#1}}
 
-%
+% izbira angleščine kot jezika
 \DeclareOption{anglescina}{\setboolean{@anglescina}{true}}
+
 %
 % *************************
 % *** Program POMORSTVO ***
@@ -105,6 +106,13 @@
 %
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 %
+% tipologija citiranja Numeic ali APA
+\DeclareOption{numeric}{
+	\PassOptionsToPackage{style=numeric}{biblatex}
+}
+\DeclareOption{apa}{
+	\PassOptionsToPackage{style=apa}{biblatex}
+}
 %
 %
 \ProcessOptions\relax
@@ -135,6 +143,7 @@
   \RequirePackage[slovene,english]{babel}
   \selectlanguage{english}
 }
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -667,6 +676,6 @@
 }
 
 \AtEndDocument{%
-	\pdfbookmark[1]{Izjava o avtorstvu}{izjava}
-	\@izjava
+%	\pdfbookmark[1]{Izjava o avtorstvu}{izjava}
+%	\@izjava
 }

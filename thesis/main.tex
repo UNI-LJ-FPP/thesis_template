@@ -1,13 +1,14 @@
 % **********************************************************************
 % Copyright 2025 ULFPP
 
-% Author: A.S.Grm, D. Žagar, F. Dimc
+% Author: A.S.Grm
 % Description: This is an official latex ULFPP thesis template.
-% Version: 1.0
-% Date: 03/09/2025
+% Version: 1.1
+% Date: 06/11/2025
 % **********************************************************************
 
-\documentclass[pomnav, tisk]{fppthesis}
+%\documentclass[pomnav, tisk, numeric]{fppthesis}
+\documentclass[pomnav, tisk, apa]{fppthesis}
 %\documentclass[pomnav]{fppthesis}
 % Če pobrišete besedico tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
@@ -20,6 +21,16 @@
 %  - prompttl: promet vsš, PTTL, 1. stopnja
 %  - prom2:    promet, 2. stopnja
 %
+% 
+% Izbira ustreznega tipa citiranja
+%   pri tipu citiranja imamo dve možnosti
+%     - numeric: numeričen tip, ki ga uporabljajo v naravoslovju in tehniki
+%     -     apa: besedni zapis, ki ga uporabljajo v družboslovju
+% 
+% izbiru naredim z uporabo ustrezne besede v documentclass opcijah, spodaj sta oba primera
+%  - numeričen stil: \documentclass[pomnav, numeric]{fppthesis}
+%  -       apa stil: \documentclass[pomnav, apa]{fppthesis}
+
 
 % *******************************************************************************
 % !!! POMEMBNO: Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
@@ -146,23 +157,15 @@ vsebine.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LITERATURA in stil citiranja
+% LITERATURA 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=biber, sortcites]{biblatex}
 
-% *** Stil citiranja ***
-%
-% Pri stilu citiranja lahko izberemo med dvema možnostima
-%  - numeričen: citiranje izvede preko številk v oglatih oklepajih, recimo [1]
-%  - apa6: citiranje izvede z uporabo priimka avtorja in letnice, recimo Grossman, 1996
+% potrebno za deljenje dolgih URL naslovov
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
-% numeričen tip citiranja
-%\usepackage[backend=biber,style=numeric,sortcites]{biblatex}
-
-% APA6 stil citiranja, kjer se oklepaji dosežejo z uporabo ukaza
-%   \parencite{} namesto \cite
-\usepackage[backend=biber,style=apa,sortcites]{biblatex}
-
-%ime datoteke, ki vsebuje navedeno literaturo
+% ime datoteke, ki vsebuje navedeno literaturo
 \addbibresource{literatura.bib}
 
 

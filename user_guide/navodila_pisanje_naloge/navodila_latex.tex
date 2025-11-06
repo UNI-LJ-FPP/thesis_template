@@ -40,7 +40,6 @@
 }
 
 
-
 % ************************
 % *** Language support ***
 % ************************
@@ -72,14 +71,19 @@
 % DODATNE DEFINICIJE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% literatura
+\usepackage[backend=biber,sortcites,style=numeric]{biblatex}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\addbibresource{literatura.bib} % datoteka z zapisis bibliografije
+
 % naložite dodatne pakete, ki jih potrebujete
 \usepackage{algpseudocode}  % za psevdokodo
 \usepackage{algorithm}      % za algoritme
 \floatname{algorithm}{Algoritem}
 \renewcommand{\listalgorithmname}{Kazalo algoritmov}
 
-
-\usepackage[numbers]{natbib}
+% ostali potrebni paketi
 \usepackage{parskip}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -161,16 +165,6 @@
 \newtheorem{exmp}{}[section]
 \newtheorem{naloga}{Naloga}[section]
 
-% 
-% *** Literatura ***
-%
-\newcommand{\vkljucibibliografijo}[1]{%
-	\cleardoublepage
-	\singlespacing
-	\addcontentsline{toc}{section}{Literatura}
-	\bibliographystyle{plainnat}
-	\bibliography{#1}
-}
 
 %
 % *** Fancy header ***
@@ -206,7 +200,7 @@
 		
 		\begin{flushleft} \large
 			\emph{Avtorji:}\\[3mm]
-			\hspace{1cm}\textsc{D. Žagar, A.S. Grm in F. Dimc}\\[1mm]
+			\hspace{1cm}\textsc{A.S.Grm} in \textsc{D.Žagar}\\[1mm]
 		\end{flushleft}
 		
 		\vfill
@@ -248,7 +242,7 @@ Obdelava teksta potrebuje prevajalnik, ki si ga lahko namestimo na lastnem raču
 Druga stvar je editor v katerem naj bi tekst urejali. Najbolj priporočamo prav TexStudio, imamo pa udi druga okolja
 
 \begin{itemize}[nosep]
-	\item TexStudio (https://www.texstudio.org)
+	\item TexStudio (\url{htps://www.texstudio.org})
 	\item VisualStudio (\url{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop})
 	\item TexMaker (\url{https://www.xm1math.net/texmaker})
 	\item TexPage (\url{https://www.texpage.com/})
@@ -265,7 +259,7 @@ Vse tole si je potrebno inštalirati na lastnem računalniku. Če niste prevelik
 \section{Postavitev delovnega \LaTeX okolja v OverLeaf aplikaciji}
 \label{sec:Overleaf}
 
-Spletno okolje OverLeaf je dosegljivo preko naslova \url{https://www.overleaf.com}. Tukaj se registrirate kot uporabnik in potem lahko kar pričnete z delom.
+Spletno okolje OverLeaf je dosegljivo preko naslova \href{https://www.overleaf.com}{https://www.overleaf.com}. Tukaj se registrirate kot uporabnik in potem lahko kar pričnete z delom.
 
 Ko ste enkrat registrirani, se vam odpre osnovno okno, kjer so prikazani vsi vaši projekti
 
@@ -321,6 +315,12 @@ V \texttt{Review} mode (klikinte zgoraj desno Review), se bodo pokazale pripombe
 \section{Osnovna navodila za pisanje v \LaTeX okolju}
 \label{sec:Navodila}
 
+V nadaljevanju so prikazana osnovna navodila za pisanje v \LaTeX~okolju. Zelo dobra navodila v slovenščini je prevedel Bor Plestenjak. Skripta lahko najdete na naslovu:
+
+\href{https://github.com/UNI-LJ-FPP/thesis_template/tree/main/user_guide}{https://github.com/UNI-LJ-FPP/thesis\_template/tree/main/user\_guide}
+
+kjer se nahajajo tudi izvirnik za ta navodila. Izvirnik navodil se nahaja v mapi
+
 % *** Podpoglavje ***
 \subsection{Navodila za sestavo naloge}
 
@@ -345,15 +345,15 @@ V primeru, ko zaključno delo pišete v \LaTeX okolju, se vam ni potrebno ukvarj
 
 \begin{itemize}
 	\item Dobra navodila v angleščini so \textit{The Not So Short Introduction to \LaTeX 2$\varepsilon$}\\
-	\url{https://tug.ctan.org/info/lshort/english/lshort.pdf},
+	\href{https://tug.ctan.org/info/lshort/english/lshort.pdf}{https://tug.ctan.org/info/lshort/english/lshort.pdf}
 	\item Slovenska verzija zgornjega dokumenta je na voljo na naslovu\\ \href{https://users.fmf.uni-lj.si/plestenjak/vaje/latex/lshort.pdf}{https://users.fmf.uni-lj.si/plestenjak/vaje/latex/lshort.pdf}\\
 	kjer imate še dodatna navodila na naslovu\\
 	\href{https://users.fmf.uni-lj.si/plestenjak/vaje/latex/latex.htm}{https://users.fmf.uni-lj.si/plestenjak/vaje/latex/latex.htm}
-	\item \textbf{OverLeaf} projekt z pomočjo na naslovu \url{https://www.overleaf.com/learn},
+	\item \textbf{OverLeaf} projekt z pomočjo na naslovu \href{https://www.overleaf.com/learn}{https://www.overleaf.com/learn}
 	\item in še mnoga ostala literatura. 
 \end{itemize}
 
-\texttt{OverLeaf} (\url{https://www.overleaf.com}) projekt omogoča urejanje latex dokumentov kar v spletni aplikaciji. Študent si naredi račun, naredi projekt, ga odpre in začne kar z delom pisanja v \LaTeX u.
+\texttt{OverLeaf} (\href{https://www.overleaf.com}{https://www.overleaf.com} projekt omogoča urejanje latex dokumentov kar v spletni aplikaciji. Študent si naredi račun, naredi projekt, ga odpre in začne kar z delom pisanja v \LaTeX u.
 
 V primeru, da se vam pojavi črn kvadratek na skrajni desni strani, latex sistem ni mogel pravilno narediti preloma vrstice in morate sami dodati ročno prelom vrstice, ki je dvojni backslash (\textbackslash\textbackslash).
 
@@ -363,7 +363,7 @@ V primeru, da se vam pojavi črn kvadratek na skrajni desni strani, latex sistem
 
 V prvi vrstici \LaTeX datoteke, se nahaja ukaz
 
-\texttt{\textbackslash documentclass[pomstr, tisk]{fppthesis}}
+\texttt{\textbackslash documentclass[pomstr, tisk, numeric]{fppthesis}}
 
 Če želimo izbrati ustrezen program in smer, imamo naslednje možnosti:
 
@@ -384,7 +384,7 @@ V prvi vrstici \LaTeX datoteke, se nahaja ukaz
 
 Ko izberemo ustrezni študij, moramo samo pravilno izpolniti polja, ki so določena v delu označenem z besedo \textbf{METAPODATKI}. V metapodatkih morate izpolniti vsa polja s svojimi podatki. Tako se bodo ustrezno ustvarile vse prve strani.
 
-V primeru, da bi radi dokument objavili online, izbrišete besedo \texttt{tisk} in tako se dokument prelevi v interaktivni brez praznih strani.
+V primeru, da bi radi dokument objavili online, izbrišete besedo \texttt{tisk} in tako se dokument prelevi v interaktivni dokument, kjer se povezave obarvajo.
 
 % *** Podpoglavje ***
 \subsection{Sestavljanje poglavji}
@@ -573,7 +573,7 @@ Opombo lahko zapišemo preprosto z uporabo funkcije \texttt{\textbackslash footn
 V primeru, da avtor besedila uporabi pri pisanju vsebine, ki niso njegovo lastno delo, to vedno označimo s citatom oziroma sklicem na primernem mestu v besedilu in to ne glede na vir (knjiga, revija, zbornik, časopis itd.). To velja tako za neposredne navedke (citiranje) kot tudi za uporabo idej in ugotovitev drugih avtorjev z lastnimi besedami (povzemanje). 
 Neposredni navedki so vključeni v besedilo brez presledka ali nove vrstice. Začetek in konec navedka sta označena z dvojnimi narekovaji (»«). Na koncu navedka mora biti natančno naveden vir po pravilih za navajanje literature. Recimo v \LaTeX okolju je to preprosto, če uporabljate okolje \texttt{bibtex} in posebno datoteko, kamor zapisujete vire.
 
-Enostavno zbiranje virov ja preko strani \url{https://scholar.google.com/} (GS), kjer lahko iščete vire. Recimo zanima nas knjiga
+Enostavno zbiranje virov ja preko strani \href{https://scholar.google.com}{https://scholar.google.com} (GS), kjer lahko iščete vire. Recimo zanima nas knjiga
 
 Ship resistance and propulsion, avtorjev A.F. Molland, S.R. Turnock in D.A. Hudson (2017)
 
@@ -600,15 +600,43 @@ Sedaj izberemo opcijo \texttt{BibTex} in podatke shranimo v našo datoteko\\
 	\label{fig:gs_cite_02}
 \end{figure}
 
-Podatke označimo in jih skopiramo v datoteko. Zelo preprosto. Vir sedaj citiramo z uporabo ukaza \texttt{cite}, recimo \texttt{\textbackslash cite\{molland2017ship\}} \cite{molland2017ship}.
+Podatke označimo in jih skopiramo v datoteko. Zelo preprosto. Sedaj imamo pripravljeno podatkovno bazo naših virov. Vire lahko v OverLeaf okolju naložimo tudi iz naše osebne baze recimo Zotero ali Mandeley. Navodila, kako uvozim moje bibliografske podatke lahko najdete na naslovu
 
-Potem imamo recimo sklicevanje na več knjig \cite{glob,lang,kalisnik}, in pa referata \cite{zbornik}. V primeru članka z več avtorji \cite{vec-avtorjev} ali pa internetnega vira \cite{wiki} ali \cite{web:lang:stats}.
+\href{https://docs.overleaf.com/integrations-and-add-ons/reference-manager-integrations}{https://docs.overleaf.com/integrations-and-add-ons/reference-manager-integrations}
+
+\newpage
+\textbf{Citiranje virov v tekstu}
+
+Vire lahko citiramo z uporabo dveh stilov:
+
+\begin{itemize}
+	\item \emph{numeričen}: kjer potrebujemo citat vira, se v tekstu  izpiše številka v oglatih oklepajih, recimo [3]
+	\item \emph{APA}: kjer potrebujemo citat vira, se v tekstu  izpiše tekst avtorja ali avtorjev, recimo Froude in Froude, 1888. Če želimo imeti okrogle oklepaje okoli, jih preprosto dodamo (Froude in Froude, 1888)
+\end{itemize}
+
+Izbiro formata citiranja določimo z izbiro v vrstici 10 datoteke, kjer pišete vašo nalogo (\texttt{main.tex}). Tukaj določimo format z ustrezno izbiro ukaza \texttt{numeric} ali \texttt{apa} v oglatih oklepajih v \texttt{documentclass} definiciji. Zgleda pa takole:
+
+\begin{itemize}
+	\item \emph{numeričen}: \texttt{\textbackslash documentclass[pomnav, tisk, numeric]\{fppthesis\}}
+	\item \emph{APA}: \texttt{\textbackslash documentclass[pomnav, tisk, apa]\{fppthesis\}}
+\end{itemize}
+
+Vir sedaj citiramo z uporabo ukaza \texttt{cite}, recimo \texttt{\textbackslash cite\{molland2017ship\}}, ki bo izpisalo citat \cite{molland2017ship}. V primeru, ko želimo citirati več virov uporabimo \texttt{\textbackslash \{glob,lang,kalisnik\}}, ki bo izdelal zapis \cite{glob,lang,kalisnik}. Recimo različni primeri citiranja, ki so zapisani v datoteki naših virov \texttt{literatura.bib} in jih najdete pod njihovim ključem
+
+\begin{itemize}
+	\item citiranje zbornika: \texttt{\textbackslash cite\{zbornik\}} nam izpiše \cite{zbornik}
+	\item članka z več avtorji: \texttt{\textbackslash cite\{vec-avtorjev\}} nam izpiše \cite{vec-avtorjev}
+	\item internetni vir: \texttt{\textbackslash cite\{wiki\}} -- \cite{wiki} ali \texttt{\textbackslash cite\{web:lang:stats\}} -- \cite{web:lang:stats} 
+\end{itemize}
 
 
 % ******************
 % *** Literatura ***
 % ******************
-\vkljucibibliografijo{literatura}
+\cleardoublepage
+\singlespacing
+\addcontentsline{toc}{section}{Literatura}
+\printbibliography
 
 \end{document}
 

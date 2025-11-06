@@ -1,0 +1,309 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{vec-avtorjev}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=4259398955b405dd29f826122a4c7575}{%
+           family={Angelini},
+           familyi={A\bibinitperiod},
+           given={Patrizio},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ecc048123c454e371e2a99677d54ec4d}{%
+           family={Frati},
+           familyi={F\bibinitperiod},
+           given={Fabrizio},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9d193ef606aaaf76bdda5c5a747a9f59}{%
+           family={Kaufmann},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{fullhash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{fullhashraw}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{bibnamehash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{authorbibnamehash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{authornamehash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{authorfullhash}{1db69cb27134c558a6d7f9fe4c16f574}
+      \strng{authorfullhashraw}{1db69cb27134c558a6d7f9fe4c16f574}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Discrete Comput. Geom.}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Straight-line rectangular drawings of clustered graphs}
+      \field{volume}{45}
+      \field{year}{2011}
+      \field{pages}{88\bibrangedash 140}
+      \range{pages}{53}
+    \endentry
+    \entry{zbornik}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c65ad3eb8cdb94cb1f6cbb6ee05989b8}{%
+           family={Cappell},
+           familyi={C\bibinitperiod},
+           given={Sylvain\bibnamedelima E.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=150fe4cb66a0756fd5c4609795828ba0}{%
+           family={Shaneson},
+           familyi={S\bibinitperiod},
+           given={Julius\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Annals of Mathematics}%
+      }
+      \strng{namehash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{fullhash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{fullhashraw}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{bibnamehash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{authorbibnamehash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{authornamehash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{authorfullhash}{24eb07757a50ce96d27ace4ba4f36180}
+      \strng{authorfullhashraw}{24eb07757a50ce96d27ace4ba4f36180}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{number}{3}
+      \field{title}{Singularities and Immersions}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2023}
+      \field{volume}{105}
+      \field{year}{1977}
+      \field{urldateera}{ce}
+      \field{pages}{539\bibrangedash 552}
+      \range{pages}{14}
+    \endentry
+    \entry{glob}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=de34069f7a6fb5990508c5d4dd5d958c}{%
+           family={Globevnik},
+           familyi={G\bibinitperiod},
+           given={Josip},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a1f166f2d696ed754f1597654a3c9b8c}{%
+           family={Brojan},
+           familyi={B\bibinitperiod},
+           given={Miha},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Ljubljana}%
+      }
+      \list{publisher}{1}{%
+        {DMFA -- založništvo}%
+      }
+      \strng{namehash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{fullhash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{fullhashraw}{062aea7756c4677a268d0b8107a198cd}
+      \strng{bibnamehash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{authorbibnamehash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{authornamehash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{authorfullhash}{062aea7756c4677a268d0b8107a198cd}
+      \strng{authorfullhashraw}{062aea7756c4677a268d0b8107a198cd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Matematični rokopisi \textbf{25}}
+      \field{title}{Analiza 1}
+      \field{year}{2010}
+    \endentry
+    \entry{kalisnik}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=2388684b1bba8f75303c5775d23b1adf}{%
+           family={Kališnik},
+           familyi={K\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0a980490d3ae959dfd69615350a7fc74}{%
+           family={Mrčun},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {J. Kališnik}%
+      }
+      \strng{namehash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{fullhash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{fullhashraw}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{bibnamehash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{authorbibnamehash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{authornamehash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{authorfullhash}{4010115a1b6a6302fee01987b6dd88ab}
+      \strng{authorfullhashraw}{4010115a1b6a6302fee01987b6dd88ab}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Upodobitev orbiterosti: diplomsko delo : {Prešernova} nagrada študentom}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://books.google.si/books?id=yhI8NQAACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.si/books?id=yhI8NQAACAAJ
+      \endverb
+    \endentry
+    \entry{lang}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=88c92ddced8d93c4ed4df52ee477b0c6}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhashraw}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{bibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorbibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authornamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhashraw}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamentals of Differential Geometry}
+      \field{year}{1999}
+    \endentry
+    \entry{molland2017ship}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=beb17ac43dd9edb17c44801a456907c3}{%
+           family={Molland},
+           familyi={M\bibinitperiod},
+           given={A.F.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=73367a4e5203169c121219d2a810bd6f}{%
+           family={Turnock},
+           familyi={T\bibinitperiod},
+           given={S.R.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=75aaf4d35f71e0e0077da7fa73804fc4}{%
+           family={Hudson},
+           familyi={H\bibinitperiod},
+           given={D.A.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{fullhash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{fullhashraw}{bacbab1b972153afd176c54fef9c073b}
+      \strng{bibnamehash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{authorbibnamehash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{authornamehash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{authorfullhash}{bacbab1b972153afd176c54fef9c073b}
+      \strng{authorfullhashraw}{bacbab1b972153afd176c54fef9c073b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ship resistance and propulsion}
+      \field{year}{2017}
+    \endentry
+    \entry{web:lang:stats}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b8c88a0b473eb9cabd5c6ab5589ea50d}{%
+           family={W3Techs},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{fullhash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{fullhashraw}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{bibnamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorbibnamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authornamehash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorfullhash}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \strng{authorfullhashraw}{b8c88a0b473eb9cabd5c6ab5589ea50d}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Last accessed 16 September 2017}
+      \field{title}{Usage Statistics of Content Languages for Websites}
+      \field{urlday}{16}
+      \field{urlmonth}{9}
+      \field{urlyear}{2017}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://w3techs.com/technologies/overview/content_language/all
+      \endverb
+      \verb{url}
+      \verb http://w3techs.com/technologies/overview/content_language/all
+      \endverb
+    \endentry
+    \entry{wiki}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{label}{wiki}
+      \field{title}{Matrix (mathematics) --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2023}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Matrix_(mathematics)&oldid=1128559126
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Matrix_(mathematics)&oldid=1128559126
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
