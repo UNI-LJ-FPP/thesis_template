@@ -7,9 +7,8 @@
 % Date: 06/11/2025
 % **********************************************************************
 
-%\documentclass[pomnav, tisk, numeric]{fppthesis}
 \documentclass[pomnav, tisk, apa]{fppthesis}
-%\documentclass[pomnav]{fppthesis}
+%\documentclass[pomnav, apa]{fppthesis}
 % Če pobrišete besedico tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
 %
@@ -44,8 +43,8 @@
 %          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[pdftex]{hyperref}
 \usepackage{enumitem}   % okolje za naštevanje
+\usepackage{xcolor}     % paleta dodatnih barv
 \usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
 \usepackage{csquotes}   % biber potrebuje
 \usepackage{tabularray} % za lepo urejene tabele
@@ -191,13 +190,13 @@ Po uvodu pričnemo z opisom \textit{Materialov in metod}, ki jih v nalogi uporab
 \section{Materiali in metode}
 \label{sec:Materiali}
 
-V tem poglavju natančno opišete uporabljeno opremo in postopke dela z opremo. Mogoče v začetnem delu opišete teoretične osnovne principe, ki jih boste uporabljali. Recimo pri določanju upora ladje s pomočjo meritev modela v bazenu, se uporabi Frudejev princip, ki je bil opisan v \cite{froude1888resistance}. To je bil primer citiranja.
+V tem poglavju natančno opišete uporabljeno opremo in postopke dela z opremo. Mogoče v začetnem delu opišete teoretične osnovne principe, ki jih boste uporabljali. Recimo pri določanju upora ladje s pomočjo meritev modela v bazenu, se uporabi Frudejev princip, ki je bil opisan v \cite{froude1888resistance}. To je bil primer enostavnega citiranja v APA stilu.
 
 Za APA stil citiranja, kjer bi radi uporabili oklepaje, preprosto naredite oklepaje okoli \texttt{cite} ukaza
-
 \begin{itemize}
-	\item \texttt{(\textbackslash cite\{froude1888resistance\})}: kar izvede (\cite{froude1888resistance})
+	\item \texttt{(\textbackslash cite\{froude1888resistance\})}: kar izvede (\cite{froude1888resistance}),
 \end{itemize}
+in je tako v skladu z nekaterimi navodili, ki jih imajo v družboslovju.
 
 % *** Podpoglavje ***
 \subsection{Opis trenja}
