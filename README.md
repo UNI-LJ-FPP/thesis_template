@@ -32,13 +32,13 @@ V primeru, če vam kaj ne dela prav in ne veste kje je napaka, vam bo zelo pomag
 
 **Prevajanje dokumenta**
 
-LaTeX dokument ```main.tex``` vedno prevajamo z uporabo ```pdflatex``` ukaza, ker je predloga narejena samo za ta prevajalnik. Da si zgradite ustrezno bibliografijo je potrebno uporabiti še ukaz ```bibtex```, ki iz datoteke ```literatura.bib``` naredi datoteko ```main.bbl```, ki vsebuje izpis literature v predpisanem formatu.
+LaTeX dokument ```main.tex``` vedno prevajamo z uporabo ```pdflatex``` ukaza, ker je predloga narejena samo za ta prevajalnik. Da si zgradite ustrezno bibliografijo je potrebno uporabiti še ukaz ```biber``` (novejša ```biblatex``` verzija) , ki iz datoteke ```literatura.bib``` naredi datoteko ```main.bbl```, ki vsebuje izpis literature v predpisanem formatu.
 
 V datoteki ```literatura.bib``` imate lahko bistveno več vpisane literature, kot jo pa potrebujete v nalogi. Prevajalni ```pdflatex``` sam nato izbere tisto kar potrebuje.
 
-Postopek prevajanja LaTeX dokumenta je:
+Če pravajate na svojem računalniku je postopek prevajanja LaTeX dokumenta sledeč:
  1. ```pdflatex``` poženem vsaj 2x
- 2. ```bibtex``` poženem prvič in nato, ko dodam kakšen nov vnos v ```literatura.bib```
+ 2. ```biber``` poženem prvič in nato, ko dodam kakšen nov vnos v ```literatura.bib```
  3. ```pdflatex``` poženem še na zadnje in dobim ```main.pdf``` dokument z vso izpisano literaturo in ustreznimi referencami v dokumentu.
 
 
