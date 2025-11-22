@@ -1,0 +1,214 @@
+% **********************************************************************
+% Copyright 2025 ULFPP
+
+% Author: A.S.Grm
+% Description: This is an official LaTeX ULFPP thesis disposition template.
+% Version: 1.0
+% Date: 22/11/2025
+% **********************************************************************
+
+% Najprej je potrebno določit deklaracijo študija v 
+%
+%    \documentclass[<program študija>,<smer>]{fppdisp}
+%
+% - zamenjava za <program študija> z ustreznim programom
+% - če je potrebna smer pa še vpis smeri: SMER={splošna,vojaška}
+%
+%  primer: \documentclass[pomnav,SMER=splošna]{fppdisp} 
+%
+%  - pomnav:   pomorstvo vsš, 1. stopnja, navtika 
+%      potrebno dodati še SMER={splošna ali vojaška} 
+%   
+%  - pomstr:   pomorstvo vsš, 1. stopnja, pomorsko strojništvo
+%      potrebno dodati še SMER={splošna ali vojaška}  
+%   
+%  - pom2:     pomorstvo, 2. stopnja
+%      izbriši opcijo SMER v \setkeys{fppdisp}
+%
+%  - promtpl:  promet uni, 1. stopnja, TPL
+%      izbriši opcijo SMER v \setkeys{fppdisp}
+%
+%  - prompttl: promet vsš, 1. stopnja, PTTL
+%      potrebno dodati še SMER={splošna ali vojaška}
+%
+%  - prom2:    promet, 2. stopnja
+%      izbriši opcijo SMER v \setkeys{fppdisp}
+%
+% *** Pomorstvo ***
+%\documentclass[pomnav,SMER=splošna]{fppdisp}
+\documentclass[pomstr,SMER=splošna]{fppdisp}
+%\documentclass[pom2]{fppdisp}
+% *** Promet ***
+%\documentclass[prompttl,SMER=splošna]{fppdisp}
+%\documentclass[promtpl]{fppdisp}
+%\documentclass[prom2]{fppdisp}
+
+% Zamenjajte z vašimi podatki, vsi podatki so potrebni!
+\setkeys{fppdisp}{
+	NASLOV={Preverjanje točnosti simulacij plovbe},
+	AVTOR={Janez NOVAK},
+	STEVILKA=123456,
+	MENTOR={doc.dr.~Miha BONČA},
+	MESEC=November,
+	LETO=2025
+}
+
+% *******************************************************************************
+% !!! POMEMBNO: Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
+% *******************************************************************************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DODATNI PAKETI in FUNKCIONALNOSTI
+% 
+% WARNING: minimalno, da v OverLeaf prevede v kratkem času. Če boste dodali
+%          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}   % okolje za naštevanje
+\usepackage{siunitx}        % dodatno okolje za pravilno pisanje števil z enoto
+\usepackage{csquotes}    % biber potrebuje
+
+%
+% *** Caption to be bold face ***
+%
+\usepackage[labelfont=bf]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LITERATURA 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=biber, sortcites]{biblatex}
+
+% potrebno za deljenje dolgih URL naslovov
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% ime datoteke, ki vsebuje navedeno literaturo
+\addbibresource{literatura.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ZAČETEK VSEBINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% *********************
+% *** Novo poglavje ***
+% *********************
+\section{Uvod -- Opis problema}
+
+Uvodni del naloge ponavadi vsebuje:
+
+\begin{itemize}[nosep]
+	\item splošen pregled področja naloge,
+	\item osnovno literaturo področja naloge,
+	\item kaj bomo v nalogi naredili,
+	\item kako je naloga sestavljena.
+\end{itemize}
+
+Namen uvodnega dela je opisati ozadje diplomskega dela \cite{froude1888resistance}, kaj so glavna izhodišča in hipoteza \cite{kalisnik}. Nadaljujete s splošnim opisom pristopa reševanja naloge, kjer se sklicujete na vire \cite{web:lang:stats}, ki opisujejo določene postopke \cite{glob, kalisnik}, rezultate, algoritme in podobno \cite{wiki, zbornik, vec-avtorjev}, iz katerih se boste navdihovali oziroma nadaljevali vaše raziskovalno delo v nalogi \cite{lang}.
+
+
+% *********************
+% *** Novo poglavje ***
+% *********************
+\section{Cilji in namen naloge}
+
+V tem poglavju natančno opišete kaj so cilji naloge.
+
+
+% *********************
+% *** Novo poglavje ***
+% *********************
+\section{Predvidene metode dela}
+
+V tem poglavju opišete katere metode boste uporabili pri delu, kako in zakaj jih boste uporabili. Seznam metod je sledeči:
+
+\begin{itemize}
+	\item \textbf{kvalitativne metode}
+	\begin{itemize}
+		\item Kaj so?\\
+		Metode, ki se osredotočajo na neštevilske podatke (besedilo, opisi, izkušnje, mnenja).
+		\item Namen:\\
+		Razumevanje pojavov, procesov, motivacij, stališč in konteksta.
+		\item Primeri:\\
+		Intervjuji (strukturirani, polstrukturirani, odprti), Fokusne skupine, Analiza dokumentov, Opazovanje, \dots
+		\item Uporaba:\\
+		Ko želiš poglobljeno razložiti zakaj in kako se nekaj dogaja, ne pa meriti količine.
+	\end{itemize}
+	\item \textbf{kvantitativne metode}
+	\begin{itemize}
+		\item Kaj so?\\
+		Metode, ki temeljijo na številskih podatkih in statistični obdelavi.
+		\item Namen:\\
+		Merjenje, primerjanje, simulacije, testiranje hipotez, iskanje korelacij.
+		\item Primeri:\\
+		Numerične simulacije, Anketni vprašalniki z numeričnimi odgovori, Eksperimenti z merljivimi spremenljivkami, Statistična analiza (regresija, korelacija, t-test), \dots
+		\item Uporaba:\\
+		Ko želiš ugotoviti koliko, kako pogosto, kakšna je povezava med spremenljivkami.
+	\end{itemize}
+	\item \textbf{descriptivna metoda}
+	 \begin{itemize}
+		\item Kaj je?\\
+		Metoda, ki se osredotoča na opis stanja, pojavov ali procesov, brez nujnega iskanja vzročnih povezav.
+		\item Namen:\\
+		Predstaviti dejstva, značilnosti, strukturo ali potek dogajanja.
+		\item Primeri:\\
+		Opis obstoječih podatkov (npr. statistike iz poročil), Analiza literature, Opis postopkov ali tehnologij, \dots
+		\item Uporaba:\\
+		Ko želiš bralcu podati jasen pregled obstoječega stanja ali sistema, brez globlje interpretacije.
+	\end{itemize}
+\end{itemize}
+
+\textbf{Glavna razlika in primerjava metod dela}
+\begin{itemize}
+	\item \textit{Kvalitativno}: poglobljeno razumevanje, neštevilski podatki, interpretacija.
+	\item \textit{Kvantitativno}: merjenje, številčni podatki, statistika.
+	\item \textit{Deskriptivno}: opis, pregled, brez analize vzročnosti.
+\end{itemize}
+
+
+% *********************
+% *** Novo poglavje ***
+% *********************
+\newpage
+\section{Predvidena struktura naloge}
+
+Tukaj se pripravi predvideno kazalo naloge, recimo nekako takole kakor je spodaj, seveda morate naredit po vaši predvideni nalogi
+
+\begin{enumerate}
+	\item Uvod
+	\begin{enumerate}[label*=\arabic*.]
+		\item Pregled področja dela
+		\item Pregled literature
+		\item \dots
+	\end{enumerate}
+	\item Materiali in metode
+		\begin{enumerate}[label*=\arabic*.]
+			\item Opis modela
+			\item Opis naprav
+			\item \dots
+		\end{enumerate}
+	\item Rezultati
+		\begin{enumerate}[label*=\arabic*.]
+			\item Rezultati simulacije
+			\item Rezultati meritve
+			\item Primerjava
+			\item \dots
+		\end{enumerate}
+	\item Diskusija in zaključek
+\end{enumerate}
+
+% ******************
+% *** Literatura ***
+% ******************
+\cleardoublepage
+\singlespacing
+\section{Literatura}
+
+Literatura se bo sama izpisala, to je tista, ki ste jo uporabili v izdelavi dispozicije. Če bo še kakšna dodatna v nalogi to ni problem.
+
+\printbibliography
+
+\end{document}
