@@ -1,316 +1,133 @@
-% **********************************************************************
-% Copyright 2025 ULFPP (povzeto po FMF predlogi)
+% *****************************************************************************
+% Copyright 2025 ULFPP
 
 % Author: Aleksander Sandro GRM @fpp.uni-lj.si
 % Description: This is an official latex ULFPP thesis class template.
 % Version: 1.0
-% Date: 03/09/2025
-% **********************************************************************
-
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fppthesis}[2025/09/03 Zakljucna dela na FPP]
-
-% ******************************************************************
+% Date: 22/11/2025
+%
+% 
 % !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
-% ******************************************************************
+%
+% *****************************************************************************
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{fppthesis}[2025/11/21 Zaključno delo na FPP]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% NALAGANJE POTREBNIH PAKETOV
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage{amsfonts,amsmath,amssymb,amsthm}
+% *****************************************************************************
+% Nalaganje dodatnih paketov *** 
+% *****************************************************************************
+
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
+\RequirePackage[slovene]{babel}
 \RequirePackage{lmodern}
-\RequirePackage{newfile}
+% **********************************
 \RequirePackage{etoolbox}
 \RequirePackage{ifthen}
-\RequirePackage{keyval}
+\RequirePackage{kvoptions}
 \RequirePackage{makeidx}
 \RequirePackage{setspace}
+% **********************************
+\RequirePackage{amsfonts,amsmath,amssymb,amsthm}
 \RequirePackage{graphicx}
+\RequirePackage{tabularray}
+\RequirePackage{xcolor}
 
-\newcommand{\@ifthen}[2]{\ifthenelse{#1}{#2}{\relax}}
-\newcommand{\@unless}[2]{\ifthenelse{#1}{\relax}{#2}}
+% *****************************************************************************
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% OPCIJE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newboolean{@magisterij}
-\newboolean{@doktorat}
-\newboolean{@anglescina}
-\newboolean{@tisk}
-\newcommand{\@sloeng}[2]{\ifthenelse{\boolean{@anglescina}}{#2}{#1}}
-
-% izbira angleščine kot jezika
-\DeclareOption{anglescina}{\setboolean{@anglescina}{true}}
-
-%
-% *************************
-% *** Program POMORSTVO ***
-% *************************
-\DeclareOption{pomnav}{
-	\def\@program{Dodiplomski visokošolski program prve stopnje}
-	\def\@smer{Navtika}
-	\def\@imenaloge{DIPLOMSKA NALOGA}
-	\def\@programme{missing}
-	\def\@thesisname{DIPLOMA THESIS}
-}
-\DeclareOption{pomstr}{
-	\def\@program{Dodiplomski visokošolski program prve stopnje}
-	\def\@smer{Pomorsko strojništvo}
-	\def\@imenaloge{DIPLOMSKA NALOGA}
-	\def\@programme{missing}
-	\def\@thesisname{DIPLOMA THESIS}
-}
-\DeclareOption{pom2}{
-	\def\@program{Drugostopenjski podiplomski študijski program}
-	\def\@smer{Pomorstvo}
-	\def\@imenaloge{MAGISTRSKA NALOGA}
-	\def\@thesisname{MASTER'S THESIS}
-	\setboolean{@magisterij}{true}
-}
-%
-% *************************
-% *** Program PROMET ***
-% *************************
-\DeclareOption{promuni}{
-	\def\@program{Dodiplomski univerzitetni program prve stopnje}
-	\def\@smer{Transport in prometna logistika}
-	\def\@imenaloge{DIPLOMSKA NALOGA}
-	\def\@programme{missing}
-	\def\@thesisname{DIPLOMA THESIS}
-}
-\DeclareOption{prompttl}{
-	\def\@program{Dodiplomski visokošolski program prve stopnje}
-	\def\@smer{Prometna tehnologija in transportna logistika}
-	\def\@imenaloge{DIPLOMSKA NALOGA}
-	\def\@programme{missing}
-	\def\@thesisname{DIPLOMA THESIS}
-}
-\DeclareOption{prom2}{
-	\def\@program{Drugostopenjski podiplomski študijski program}
-	\def\@smer{Promet}
-	\def\@imenaloge{MAGISTRSKA NALOGA}
-	\def\@thesisname{MASTER'S THESIS}
-	\setboolean{@magisterij}{true}
-}
-%
-% *** Druge nastavitve ***
-%
-\DeclareOption{tisk}{
-  \setboolean{@tisk}{true}
-  \PassOptionsToClass{twoside}{article}
-}
-%
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-%
-% tipologija citiranja Numeic ali APA
-\DeclareOption{numeric}{
-	\PassOptionsToPackage{style=numeric}{biblatex}
-}
-\DeclareOption{apa}{
-	\PassOptionsToPackage{style=apa}{biblatex}
-}
-%
-%
-\ProcessOptions\relax
-\LoadClass[12pt, a4paper]{article}
-%
-\ifthenelse{\boolean{@doktorat}}{
-  \def\@stopnja{3. stopnja}
-  \def\@tipdela{Doktorska naloga}
-  \def\@cycle{3rd cycle }
-  \def\@thesistype{PhD thesis}
-}
-%
-\ifthenelse{\boolean{@magisterij}}{
-	\def\@stopnja{2. stopnja}
-	\def\@tipdela{Magistrsko delo}
-	\def\@cycle{2nd cycle}
-	\def\@thesistype{Master's thesis}
-}{
-  \def\@stopnja{1. stopnja}
-  \def\@tipdela{Diplomsko delo}
-  \def\@cycle{1st cycle}
-  \def\@thesistype{Diploma thesis}
-}
-%
-\@sloeng{
-  \RequirePackage[slovene]{babel}
-}{
-  \RequirePackage[slovene,english]{babel}
-  \selectlanguage{english}
+\SetupKeyvalOptions{
+	family=fppthesis,
+	prefix=fppthesis@
 }
 
+\DeclareStringOption[DefaultValue]{PROGRAM}
+\DeclareStringOption[DefaultValue]{SMER}
+\DeclareStringOption{NASLOVSLO}
+\DeclareStringOption{NASLOVANG}
+\DeclareStringOption{AVTOR}
+\DeclareStringOption{STEVILKA}
+\DeclareStringOption{MENTOR}
+\DeclareStringOption{LEKTOR}
+\DeclareStringOption{LETO}
+\DeclareStringOption{MESEC}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% VNOS METAPODATKOV
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\@definefield}[2]{
-  % \definefield{@imepolja}{...} načeloma naredi \def\@imepolja{...},
-  % le da pri tem iz ... pobriše presledke
-  % Iz imena ukaza dobimo ukaz s pomočjo \csname kot
-  %   \csname imeukaza\endcsname ~> \imeukaza
-  % Če bi napisali \def\csname @imepolja\endcsname{...} bi to povozilo ukaz
-  % \csname, zato moramo uporabiti \expandafter, da najprej izvedemo \csname,
-  % šele nato \def.
-  \expandafter\def\csname #1\endcsname{\ifblank{#2}{}{#2}}
+% *** aliasi za program študija ***
+\DeclareVoidOption{pomnav}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{Visokošolski strokovni študijski program 1. stopnje \newline Navtika}
+	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
 }
-\newcommand{\@definerequiredfield}[2]{
-  \@definefield{#1}{#2}
-  {
-    % Ker ključne besede vsebujejo nedefinirano ločilo \sep, ga za potrebe
-    % preverjanja lokalno definiramo (zato par zavitih oklepajev).
-    \def\sep{\relax}
-    \@ifthen{\equal{\csname #1\endcsname}{}}{
-      \PackageError{fppthesis}{Polje je zahtevano.}{}
-    }
-  }
+\DeclareVoidOption{pomstr}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{Visokošolski strokovni študijski program 1. stopnje \newline Pomorsko strojništvo}
+	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
 }
-\def\@mentorji{}
-\def\@supervisors{}
-\newcommand{\@dodajmentorja}[3]{%
-  \g@addto@macro\@mentorji{\textit{#1}: & #3 \\}%
+\DeclareVoidOption{promtpl}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{Univerzitetni študijski program 1. stopnje \newline Tehnologija prometa in logistika}
+	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
 }
-\newcommand{\@dodajdvamentorja}[4]{%
-  \g@addto@macro\@mentorji{\textit{#1}: & #3 \\ & #4 \\}%
+\DeclareVoidOption{prompttl}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{Visokošolski strokovni študijski program 1. stopnje \newline Prometna tehnologija in transportna logistika}
+	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
 }
-\newcommand{\@addsupervisor}[3]{%
-  \g@addto@macro\@supervisors{\textit{#1}: & #3 \\}%
+\DeclareVoidOption{pom2}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{2. stopenjski študijski program Pomorstvo}
+	\newcommand{\fppthesis@imenalogeSLO}{Magistrska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Master thesis}
 }
-\newcommand{\@addsupervisors}[4]{%
-  \g@addto@macro\@supervisors{\textit{#1}: & #3 \\ & #4 \\}%
-}
-\newcommand{\@it@addsupervisor}[3]{%
-  \g@addto@macro\@it@supervisors{\textit{#1}: & #3 \\}%
-}
-\newcommand{\@it@addsupervisors}[4]{%
-  \g@addto@macro\@it@supervisors{\textit{#1}: & #3 \\ & #4 \\}%
-}
-
-\newcommand{\avtor}{\@definerequiredfield{@avtor}}
-\newcommand{\naslov}{\@definerequiredfield{@naslov}}
-\renewcommand{\title}{\@definerequiredfield{@title}}
-\newcommand{\mesec}{\@definerequiredfield{@mesec}}
-\newcommand{\leto}{\@definerequiredfield{@leto}}
-\newcommand{\stevilka}{\@definerequiredfield{@stevilka}}
-\newcommand{\zahvala}{\@definefield{@zahvala}}
-\newcommand{\povzetek}{\@definerequiredfield{@povzetek}}
-\renewcommand{\abstract}{\@definerequiredfield{@abstract}}
-\newcommand{\kljucnebesede}{\@definerequiredfield{@kljucnebesede}}
-\newcommand{\keywords}{\@definerequiredfield{@keywords}}
-\newcommand{\sklep}{\@definerequiredfield{@sklep}}
-
-\@ifthen{\boolean{@anglescina}}{
-  \newcommand{\razsirjenipovzetek}{\@definerequiredfield{@razsirjenipovzetek}}
+\DeclareVoidOption{prom2}{
+	\renewcommand{\fppthesis@PROGRAM}
+	{2. stopenjski študijski program Promet}
+	\newcommand{\fppthesis@imenalogeSLO}{Magistrska naloga}
+	\newcommand{\fppthesis@imenalogeANG}{Master thesis}
 }
 
-\newcommand{\geslo}[2]{\noindent\textbf{#1}\hspace*{3mm}\hangindent=\parindent\hangafter=1 #2\par}
+% --- Add a flag to detect explicit user input for SMER ---
+\newif\iffppthesis@SMERgiven
+\fppthesis@SMERgivenfalse
+\AddToKeyvalOption{fppthesis}{SMER}{\fppthesis@SMERgiventrue}
+\def\fppthesis@SMER@default{DefaultValue}
 
-\newcommand{\mentor}{\@dodajmentorja{Mentor}{mentorja}}
-\newcommand{\somentor}{\@dodajmentorja{Somentor}{somentorja}}
-\newcommand{\mentorica}{\@dodajmentorja{Mentorica}{mentorice}}
-\newcommand{\somentorica}{\@dodajmentorja{Somentorica}{somentorice}}
-\newcommand{\mentorja}{\@dodajdvamentorja{Mentorja}{mentorjev}}
-\newcommand{\somentorja}{\@dodajdvamentorja{Somentorja}{somentorjev}}
-\newcommand{\mentorici}{\@dodajdvamentorja{Mentorici}{mentoric}}
-\newcommand{\somentorici}{\@dodajdvamentorja{Somentorici}{somentoric}}
-\newcommand{\lektor}{\@dodajmentorja{Jezikovni pregled}{mentorja}}
-\newcommand{\supervisor}[1]{\@addsupervisor{Supervisor}{Supervisor's}{#1}}
-\newcommand{\cosupervisor}[1]{\@addsupervisor{Co-supervisor}{Co-supervisor's}{#1}}
-\newcommand{\supervisors}[2]{\@addsupervisors{Supervisors}{Supervisors'}{#1}{#2}}
-\newcommand{\cosupervisors}[2]{\@addsupervisors{Co-supervisors}{Co-supervisors'}{#1}{#2}}
+\ProcessKeyvalOptions*
+% *****************************************************************************
 
+\LoadClass[12pt,a4paper,twoside]{article}
+\RequirePackage[slovene]{babel}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% IZPIS PDF/A
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Debug: check SMER status
+%\iffppthesis@SMERgiven
+%	\typeout{SMER flag true; value=\fppthesis@SMER}
+%\else
+%	\typeout{SMER flag false; value=\fppthesis@SMER}
+%\fi
 
-\AtEndPreamble{%
-\let\oldtexorpdfstring\texorpdfstring
-\renewcommand{\texorpdfstring}[2]{#2}
-\let\sep{\protect\sep}
-\newoutputstream{xmpdatafile}
-\openoutputfile{\jobname.xmpdata}{xmpdatafile}
-\ifthenelse{\boolean{@anglescina}}{
-  \addtostream{xmpdatafile}{%
-  \protect\Title{\@title}
-  \protect\Author{\@avtor}
-  \protect\Keywords{\@keywords}
-  \protect\Subject{\@thesistype, \@programme}
-}}{
-  \addtostream{xmpdatafile}{%
-  \protect\Title{\@naslov}
-  \protect\Author{\@avtor}
-  \protect\Keywords{\@kljucnebesede}
-  \protect\Subject{\@tipdela, \@program}
-}}
-\closeoutputstream{xmpdatafile}
-
-\let\texorpdfstring\oldtexorpdfstring
-
-% Nalozimo paket za zagotavljanje PDF/A-2B (ustrezni fonti, barvni profili, UTF-8 zapis simbolov, ...)
-\RequirePackage[a-2b]{pdfx}
-\ifthenelse{\boolean{@tisk}}{
-  \definecolor{linkcolor}{RGB}{0,0,0}
-}{
-  \definecolor{linkcolor}{RGB}{0,84,147}
+\def\@zahvala{Ni vnešene zahvale}
+\newcommand{\zahvala}[1]{
+	\def\@zahvala{#1}
 }
-\hypersetup{bookmarksopen, bookmarksdepth=3, colorlinks=true,
-  linkcolor=linkcolor, anchorcolor=linkcolor, citecolor=linkcolor, filecolor=linkcolor,
-  menucolor=linkcolor, runcolor=linkcolor, urlcolor=linkcolor, pdfencoding=auto,
-  breaklinks=true, psdextra}
+\def\@povzetekSLO{Ni vnešene zahvale}
+\newcommand{\povzetekSLO}[1]{
+	\def\@povzetekSLO{#1}
 }
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DIMENZIJE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\textwidth 15cm
-\textheight 24cm
-\oddsidemargin.5cm
-\evensidemargin.5cm
-\topmargin-5mm
-\addtolength{\footskip}{10pt}
-\overfullrule=15pt
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RAZNO
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% pokončno napisan tekst
-\theoremstyle{definition}
-\newtheorem{aksiom}{Aksiom}
-\newtheorem{definicija}{Definicija}[section]
-\newtheorem{opomba}[definicija]{Opomba}
-\newtheorem{primer*}[definicija]{Primer}
-\newenvironment{primer}[1][]{
-  \begin{primer*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{primer*}
+\def\@povzetekANG{Ni vnešene zahvale}
+\newcommand{\povzetekANG}[1]{
+	\def\@povzetekANG{#1}
 }
-\newtheorem{zgled*}[definicija]{Zgled}
-\newenvironment{zgled}[1][]{
-  \begin{zgled*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{zgled*}
+\def\@kljucnebesedeSLO{Ni vnešene zahvale}
+\newcommand{\kljucnebesedeSLO}[1]{
+	\def\@kljucnebesedeSLO{#1}
 }
-\@ifthen{\boolean{@anglescina}}{
-\newtheorem{axiom}{Axiom}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{example*}[definition]{Example}
-\newenvironment{example}[1][]{
-  \begin{example*}[#1]\renewcommand*{\qedsymbol}{$\diamondsuit$}\pushQED{\qed}
-}{
-  \popQED\end{example*}
-}
+\def\@kljucnebesedeANG{Ni vnešene zahvale}
+\newcommand{\kljucnebesedeANG}[1]{
+	\def\@kljucnebesedeANG{#1}
 }
 
 % števec za enačbe zgleda kot (2.7) in se resetira v vsakem razdelku
@@ -321,361 +138,334 @@
 
 % Poimenuj kazalo slik kot ``Kazalo slik'' in ne ``Slike''
 \addto\captionsslovene{
-  \renewcommand{\listfigurename}{Kazalo slik}%
+	\renewcommand{\listfigurename}{Kazalo slik}%
 }
 
+% *****************************************************************************
+% Dimenzije strani
+% *****************************************************************************
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% IZPIS ZAČETNIH STRANI
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textwidth 15cm
+\textheight 24cm
+\oddsidemargin.5cm
+\evensidemargin.5cm
+\topmargin-5mm
+\addtolength{\footskip}{10pt}
+%\overfullrule=15pt % v primeru če gre tekst čez stran ga obarva črno
 
-\@sloeng{\def\@frontpages{\@frontpages@sl}}{\def\@frontpages{\@frontpages@en}}
+% *****************************************************************************
 
-%
-% *** SLO naloga ***
-%
-\def\@frontpages@sl{
+\newcommand{\fppthesis@frontpages}{
 	\pagestyle{empty}
 	%
-	\@frontpages@sl@naslovnica
+	\fppthesis@frontpages@naslovnica@slo
 	\cleardoublepage
-	\@frontpages@en@frontpage
+	\fppthesis@frontpages@naslovnica@ang
 	\cleardoublepage
-	\@frontpages@sl@osebe
+	\fppthesis@frontpages@osebe
 	\cleardoublepage
-	\@frontpages@sl@sklep
+	\fppthesis@frontpages@sklep
 	\cleardoublepage
 	
 	\pagestyle{plain}
-	\@frontpages@sl@zahvala
+	\fppthesis@frontpages@zahvala
 	\cleardoublepage
 	%
-	\@frontpages@common@toc
+	\fppthesis@common@toc
 	%
 	\pdfbookmark[1]{Povzetek}{povzetek}
-	\@frontpages@sl@povzetek
-	\@frontpages@sl@kljucnebesede
+	\fppthesis@frontpages@povzetek
+	\fppthesis@frontpages@kljucnebesede
 	\cleardoublepage
-	\@frontpages@en@abstract
-	\@frontpages@en@keywords
+	\fppthesis@frontpages@abstract
+	\fppthesis@frontpages@keywords
 	\cleardoublepage
-	
-	% *** formatiranje odstavka ***
-	\setlength{\parskip}{16pt}  % razmak med odstavki
-	\setlength{\parindent}{0pt} % poravnava v začetku odstavka
 }
-%
-% *** ANG naloga ***
-%
-\def\@frontpages@en{
-  \@frontpages@en@frontpage
-  \@frontpages@sl@naslovnica
-  \@frontpages@en@acknowledgements
-  \@frontpages@common@toc
 
-  \pdfbookmark[1]{Abstract}{abstract}
-  \@frontpages@en@abstract
-  \@frontpages@sl@povzetek
-  \@frontpages@en@keywords
-  \cleardoublepage
-  
-  % *** formatiranje odstavka ***
-  \setlength{\parskip}{16pt}  % razmak med odstavki
-  \setlength{\parindent}{0pt} % poravnava v začetku odstavka
-}
-%
 % *** Kazalo ***
-%
-\def\@frontpages@common@toc{
-  \pdfbookmark[1]{\contentsname}{kazalo-vsebine}
-  \tableofcontents
-  \vfill
-  \cleardoublepage
+\newcommand{\fppthesis@common@toc}{
+	\pdfbookmark[1]{\contentsname}{kazalo-vsebine}
+	\tableofcontents
+	\vfill
+	\cleardoublepage
 }
-%
-% *** Naslovna stran - SLO ***
-%
-\def\@frontpages@sl@naslovnica{
+
+% *** Naslovna stran SLO  ***
+\newcommand{\fppthesis@frontpages@naslovnica@slo}
+{	
 	\noindent
 	\begin{center}
-		UNIVERZA V LJUBLJANI\\[1mm]
-		FAKULTETA ZA POMORSTVO IN PROMET
-		\\[5cm]
+		{\normalsize
+			UNIVERZA V LJUBLJANI\\[1mm]
+			FAKULTETA ZA POMORSTVO IN PROMET
+		}
+		
+		\vskip 5cm
 		
 		{\Large
-			\@imenaloge
+			\fppthesis@imenalogeSLO
 		}
-		\\[2cm]
+		
+		\vskip 2cm 
+		
+		\doublespacing		
+		{\Large
+			\textbf{\MakeUppercase{\fppthesis@NASLOVSLO}}	
+		}
+		
+		\vskip 2cm
+		
+		\singlespacing
+		{\normalsize
+			\fppthesis@AVTOR
+		}
+		\end{center}
+		
+		\vfill
+		
+		\begin{center}
+		\noindent
+		Portorož, \fppthesis@MESEC~\fppthesis@LETO
+		\end{center}
+}
+
+% *** Naslovna stran ANG  ***
+\newcommand{\fppthesis@frontpages@naslovnica@ang}
+{	
+	\noindent
+	\begin{center}
+		{\normalsize
+			UNIVERSITY OF LJUBLJANA\\[1mm]
+			FACULTY FOR MARITIME STUDIES AND TRANSPORT
+		}
+		
+		\vskip 5cm
 		
 		{\Large
-			\doublespacing
-			\textbf{\MakeUppercase{\@naslov}}
-			\singlespacing
+			\fppthesis@imenalogeANG
 		}
-		\vskip 10mm
-		\@avtor
+		
+		\vskip 2cm 
+		
+		\doublespacing		
+		{\Large
+			\textbf{\MakeUppercase{\fppthesis@NASLOVANG}}	
+		}
+		
+		\vskip 2cm
+		
+		\singlespacing
+		{\normalsize
+			\fppthesis@AVTOR
+		}
 	\end{center}
 	
 	\vfill
 	
 	\begin{center}
 		\noindent
-		Portorož, \@mesec~\@leto
+		Portorož, \fppthesis@MESEC~\fppthesis@LETO
 	\end{center}
 }
-%
-% *** Naslovna stran - SLO - mentorji ***
-%
-\def\@frontpages@sl@osebe{
+
+% *** Naslovna stran SLO osebe  ***
+\newcommand{\fppthesis@frontpages@osebe}
+{	
 	\noindent
 	\begin{center}
-		UNIVERZA V LJUBLJANI\\[1mm]
-		FAKULTETA ZA POMORSTVO IN PROMET
-		\\[5cm]
+		{\normalsize
+			UNIVERZA V LJUBLJANI\\[1mm]
+			FAKULTETA ZA POMORSTVO IN PROMET
+		}
+		
+		\vskip 5cm
 		
 		{\Large
-			\@imenaloge
+			\fppthesis@imenalogeSLO
 		}
-		\\[2cm]
 		
+		\vskip 2cm 
+		
+		\doublespacing		
 		{\Large
-			\doublespacing
-			\textbf{\MakeUppercase{\@naslov}}
-			\singlespacing
+			\textbf{\MakeUppercase{\fppthesis@NASLOVSLO}}	
 		}
-		\vskip 10mm
-		\@avtor
+		
+		\vskip 2cm
+		
+		\singlespacing
+		{\normalsize
+			\fppthesis@AVTOR
+		}
 	\end{center}
-
+	
 	\vfill
 	
-	\begin{tabular}{ll}
-		\@mentorji
-	\end{tabular}
-
-	\vskip 5mm
-
-	\begin{tabular}{ll}
-		\textit{Študijski program}: & \@program \\
-		\textit{Smer študija}:      & \@smer \\
-		\textit{Vpisna številka}:   & \@stevilka
-	\end{tabular}
+	\begin{center}
+		\iffppthesis@SMERgiven
+		\begin{tblr}{
+				colspec={Q[r,t,40mm]Q[l,t,110mm]},
+				row{all}={white},
+				rowsep=3pt
+			}
+			% *** začetek podatko ***
+			\textit{Mentor}:            & \fppthesis@MENTOR \\
+			\textit{Študijski program}: & \fppthesis@PROGRAM \\
+			\textit{Smer}:              & \fppthesis@SMER \\
+			\textit{Vpisna številka}:   & \fppthesis@STEVILKA
+		\end{tblr}
+		\else
+		\begin{tblr}{
+				colspec={Q[r,t,40mm]Q[l,t,110mm]},
+				row{all}={white},
+				rowsep=3pt
+			}
+			% *** začetek podatko ***
+			\textit{Mentor}:            & \fppthesis@MENTOR \\
+			\textit{Študijski program}: & \fppthesis@PROGRAM \\
+			\textit{Vpisna številka}:   & \fppthesis@STEVILKA
+		\end{tblr}
+		\fi
+	\end{center}
 	
 	\vskip 2cm
 	
 	\begin{center}
 		\noindent
-		Portorož, \@mesec~\@leto
+		Portorož, \fppthesis@MESEC~\fppthesis@LETO
 	\end{center}
 }
-%
-% *** Naslovna stran - ANG ***
-%
-\def\@frontpages@en@frontpage{
-	\noindent
+
+% *** zahvala ***
+\newcommand{\fppthesis@frontpages@zahvala}{
+	%\ifdefined\@zahvala
+	\pdfbookmark[1]{Zahvala}{zahvala}
+	\section*{Zahvala}
+	\@zahvala
+	\vfill
+	\cleardoublepage
+	%\fi
+}
+
+% *** povzetek ***
+\newcommand{\fppthesis@frontpages@povzetek}{
 	\begin{center}
-	 	{\normalsize
-	 		UNIVERSITY OF LJUBLJANA\\[1mm]
-	 		FACULTY FOR MARITIME STUDIES AND TRANSPORT
-	 	}
-	 	\\[5cm]
-	 	
-	 	{\Large
-	 		\@thesisname
-	 	}
-	 	\\[2cm]
-	 	% \@program\ -- \@stopnja}
-	 	\doublespacing		
-		{\Large
-		 	\textbf{\MakeUppercase{\@title}}	
-		}
-		\\[2cm]
-		\singlespacing
-		{\normalsize
-		 	\@avtor
-		}
-		
-		%		\@tipdela\\[1cm]
-		%		\begin{tabular}{rl} \@mentorji \end{tabular}
-		%		}
-		
-		\vfill
-		
-		\noindent{\normalsize
-		Portorož, \@mesec~\@leto}
+		\textbf{\fppthesis@NASLOVSLO}\\[3mm]
+		\textsc{Povzetek}
 	\end{center}
+	\@povzetekSLO
+	\vfill
 }
-%
+\newcommand{\fppthesis@frontpages@abstract}{
+	\begin{center}
+		\textbf{\fppthesis@NASLOVANG}\\[3mm]
+		\textsc{Abstract}
+	\end{center}
+	\@povzetekANG
+	\vfill
+}
+
+% *** ključne besede ***
+\newcommand{\fppthesis@frontpages@kljucnebesede}{
+	\noindent
+	\def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
+	\textbf{Ključne besede:} \@kljucnebesedeSLO
+}
+\newcommand{\fppthesis@frontpages@keywords}{
+	\noindent
+	\def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
+	\textbf{Keywords:} \@kljucnebesedeANG
+}
+
 % *** Sklep KZŠZ ***
-%
-\def\@frontpages@sl@sklep{
+\newcommand{\fppthesis@frontpages@sklep}{
 	\noindent
 	\begin{center}
 		\textbf{Sklep komisije za študijske zadeve}
 		\\[1cm]
-		\fbox{\includegraphics[width=14cm]{\@sklep}}
+		\IfFileExists{sklep_kzsz.pdf}{
+			\fbox{\includegraphics[width=14cm]{sklep_kzsz.pdf}}
+		}{
+			\ClassError{fppthesis}{PDF sken sklepa KZŠZ ne najdem!}{Preveri, ali je datoteka skle_kzsz.pdf naložena?}
+		}
 	\end{center}
 }
-%
-% *** zahvala ***
-%
-\def\@frontpages@sl@zahvala{
-  \ifdefined\@zahvala
-    \pdfbookmark[1]{Zahvala}{zahvala}
-    \section*{Zahvala}
-    \@zahvala
-    \vfill
-    \cleardoublepage
-  \fi
-}
-\def\@frontpages@en@acknowledgements{
-  \ifdefined\@zahvala
-    \pdfbookmark[1]{Acknowledgements}{zahvala}
-    \section*{Acknowledgements}
-    \@zahvala
-    \vfill
-    \cleardoublepage
-  \fi
-}
-%
-% *** povzetek ***
-%
-\def\@frontpages@sl@povzetek{
-  \begin{center}
-    \textbf{\@naslov}\\[3mm]
-    \textsc{Povzetek}
-  \end{center}
-  \@povzetek
-  \vfill
-}
-\def\@frontpages@en@abstract{
-  \begin{center}
-    \textbf{\@title}\\[3mm]
-    \textsc{Abstract}
-  \end{center}
-  \@abstract
-  \vfill
-}
-%
-% *** ključne besede ***
-%
-\def\@frontpages@sl@kljucnebesede{
-  \noindent
-  \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
-  \textbf{Ključne besede:} \@kljucnebesede
-}
-\def\@frontpages@en@keywords{
-  \noindent
-  \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
-  \textbf{Keywords:} \@keywords
-}
 
-%
-% *** številčenje ***
-%
-\AfterEndPreamble{%
-	% začetne strani številčimo z rimskimi številkami
+% *****************************************************************************
+
+% potrebno za izdelavo vseh hyper metapodatkov
+%\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[
+bookmarksopen, bookmarksdepth=3, 
+colorlinks=true,
+linkcolor=blue, anchorcolor=black, citecolor=green, filecolor=red, 
+menucolor=blue, runcolor=red, urlcolor=blue,
+pdfencoding=auto, breaklinks=true, psdextra]
+{hyperref}
+
+
+% *** izdelava tesesa dokumenta ***
+\AfterEndPreamble{
+	
+	% Doda metadata informacijo za metadata podatke v PDF/A
+	\hypersetup{
+		pdfauthor={\fppthesis@AVTOR},
+		pdftitle={\fppthesis@NASLOVSLO}
+	}
+	
+	% Avoid duplicate 'page.1' by disabling page anchors on title/front matter
+	\hypersetup{pageanchor=false}
 	\pagenumbering{roman}
-	\pagestyle{plain}
-	\@frontpages
 	
-	% vsebino številčimo z arabskimi številkami od 1 naprej
-	\setcounter{page}{1}
-	\pagenumbering{arabic}
-}
-%
-% ** izjava študenta ***
-%
-\def\@izjava{
-	\noindent
-	\cleardoublepage
+	
+	% *****************************************
+	% ***         start title body          ***
+	% *****************************************
+	
 	\pagestyle{empty}
-	\begin{center}
-		\textbf{\textsf{\large Izjava o avtorstvu}}
-	\end{center}
-
-	\vskip 5mm
-
-	\small
-	Spodaj podpisani/-a študent/-ka \textit{\@avtor}, vpisna številka \textit{\@stevilka}, avtor/-ica pisnega zaključnega dela študija z naslovom:
+	%
+	\fppthesis@frontpages@naslovnica@slo
+	\cleardoublepage
+	\fppthesis@frontpages@naslovnica@ang
+	\cleardoublepage
+	\fppthesis@frontpages@osebe
+	\cleardoublepage
+	\fppthesis@frontpages@sklep
+	\cleardoublepage
 	
-	\textit{\@naslov},
+	\pagestyle{plain}
+	\fppthesis@frontpages@zahvala
+	\cleardoublepage
+	%
+	\fppthesis@common@toc
+	%
+	\pdfbookmark[1]{Povzetek}{povzetek}
+	\fppthesis@frontpages@povzetek
+	\fppthesis@frontpages@kljucnebesede
+	\cleardoublepage
+	\fppthesis@frontpages@abstract
+	\fppthesis@frontpages@keywords
+	\cleardoublepage
 	
-	\textbf{Izjavljam},
 	
-	\begin{enumerate}[nosep]
-		\item
-		\begin{enumerate}
-			\item da je pisno zaključno delo študija rezultat mojega samostojnega dela;
-			\item da je pisno zaključno delo študija rezultat lastnega dela več kandidatov in izpolnjuje pogoje, ki jih Statut UL določa za skupna zaključna dela študija ter je v zahtevanem deležu rezultat mojega samostojnega dela; 
-		\end{enumerate}
-		\item da je tiskana oblika pisnega zaključnega dela študija istovetna elektronski obliki pisnega zaključnega dela študija;
-		\item da sem pridobil/-a vsa potrebna dovoljenja za uporabo podatkov in avtorskih del v pisnem zaključnem delu študija in jih v pisnem zaključnem delu študija jasno označil/-a;
-		\item da sem pri pripravi pisnega zaključnega dela študija ravnal/-a v skladu z etičnimi načeli in, kjer je to potrebno, za raziskavo pridobil/-a soglasje etične komisije; 
-		\item da soglašam z uporabo elektronske oblike pisnega zaključnega dela študija za preverjanje podobnosti vsebine z drugimi deli s programsko opremo za preverjanje podobnosti vsebine, ki je povezana s študijskim informacijskim sistemom članice; 
-		\item da na UL neodplačno, neizključno, prostorsko in časovno neomejeno prenašam pravico shranitve avtorskega dela v elektronski obliki, pravico reproduciranja ter pravico dajanja pisnega zaključnega dela študija na voljo javnosti na svetovnem spletu preko Repozitorija UL;
-		\item (\textit{za zaključna dela na 3. stopnji študija, sestavljena iz člankov}) da sem od založnikov, na katere sem predhodno izključno prenesel/-la materialne avtorske pravice na člankih, pridobil/-a potrebna soglasja za vključitev člankov v tiskano in elektronsko obliko disertacije. Soglasja UL omogočajo neodplačno, neizključno, prostorsko in časovno neomejeno hranjenje avtorskega dela v elektronski obliki in reproduciranje ter dajanje disertacije na voljo javnosti na svetovnem spletu preko Repozitorija UL.
-		\item da dovoljujem objavo svojih osebnih podatkov, ki so navedeni v pisnem zaključnem delu študija in tej izjavi, skupaj z objavo pisnega zaključnega dela študija.
-		\item da dovoljujem uporabo svojega rojstnega datuma v zapisu COBISS.
-	\end{enumerate}
+	% *****************************************
+	% ***        start document body        ***
+	% *****************************************
 	
-	\vskip 1cm
+	% *** formatiranje odstavka ***
+	\setlength{\parskip}{16pt}  % razmak med odstavki
+	\setlength{\parindent}{0pt} % poravnava v začetku odstavka
 	
-	Kraj: Portorož\\
-	Datum: \@mesec,~\@leto
-	
-	\vskip 1cm
-	Podpis študenta/-ke: ~~~~\rule{8cm}{0.5pt}
-
+	\pagestyle{plain}
+	\hypersetup{pageanchor=true}% Re-enable before main content
+	\pagenumbering{arabic}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RAZŠIRJENI POVZETEK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -----------------------------------------------
+% Bookmark package (optional but recommended)
+% -----------------------------------------------
+\RequirePackage{bookmark} % better outlines; fewer reruns
 
-%
-% *** razširjen povzetek ***
-% *** samo za naloge pisane v angleškem jeziku 
-%
-\newcommand{\@make@razsirjenipovzetek}[3]{
-  % Args: jezik, naslov razš. povzetka (v jeziku), ime datoteke povzetka
-  % V razširjenem povzetku želimo, da razdelki pripadajo nekemu
-  % nad-razdelku "Razširjeni povzetek", zato vse razdelke premaknemo
-  % en nivo nižje in nastavimo številčenje na podrazdelek.
-
-  % shrani stare definicije razdelkov
-  \let\oldthesection\thesection
-  \let\oldthesubsection\thesubsection
-  \let\oldsection\section
-  \let\oldsubsection\subsection
-
-  % nastavi številčenje po podrazdelkih
-  \def\thesection{}
-  \def\thesubsection{\@arabic\c@subsection}
-  \numberwithin{equation}{subsection}
-
-  % premakne nivoje razdelkov en nivo nižje, da nivo `\section' spada pod razdelek razširjenega povzetka
-  \let\section\subsection
-  \let\subsection\subsubsection
-
-  \cleardoublepage
-  \begin{otherlanguage}{#1}
-    \phantomsection % potrebno za pravilno številčenje strani v kazalih
-    \addcontentsline{toc}{section}{#2} % doda razdelek v kazalo in metapodatke
-    \begin{center}
-      \textsc{#2}
-    \end{center}
-    \input{#3}
-  \end{otherlanguage}
-
-  % obnovi stare definicije razdelkov
-  \let\thesection\oldthesection
-  \let\thesubsection\oldthesubsection
-  \let\section\oldsection
-  \let\subsection\oldsubsection
-}
-
-\AtEndDocument{%
-%	\pdfbookmark[1]{Izjava o avtorstvu}{izjava}
-%	\@izjava
-}
+% *****************************************************************************
+%                             *** End of class ***
+% *****************************************************************************
