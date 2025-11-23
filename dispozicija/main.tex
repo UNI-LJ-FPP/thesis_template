@@ -1,11 +1,29 @@
-% **********************************************************************
+% *****************************************************************************
 % Copyright 2025 ULFPP
 
 % Author: A.S.Grm
 % Description: This is an official LaTeX ULFPP thesis disposition template.
 % Version: 1.0
 % Date: 22/11/2025
-% **********************************************************************
+%
+% ----------------------------------------------------------------------
+%                             !!! POMEMBNO !!!
+%       
+%   Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
+% ----------------------------------------------------------------------
+%
+%                *** Izdelava PDF/A dokument ***
+%
+%
+% pdfLatex generira navaden PDF, ki ga je potrebno pretvorit v PFD/A
+%
+% pretvorba v PDF/A online: 
+%           https://www.pdfforge.org/online/en/pdf-to-pdfa
+% 
+% validacija PDF/A: 
+%           https://www.pdfforge.org/online/en/validate-pdfa
+%
+% *****************************************************************************
 
 % Najprej je potrebno določit deklaracijo študija v 
 %
@@ -53,18 +71,14 @@
 	LETO=2025
 }
 
-% *******************************************************************************
-% !!! POMEMBNO: Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
-% *******************************************************************************
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *****************************************************************************
 % DODATNI PAKETI in FUNKCIONALNOSTI
 % 
 % WARNING: minimalno, da v OverLeaf prevede v kratkem času. Če boste dodali
 %          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
 % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *****************************************************************************
 \usepackage{enumitem}   % okolje za naštevanje
 \usepackage{siunitx}        % dodatno okolje za pravilno pisanje števil z enoto
 \usepackage{csquotes}    % biber potrebuje
@@ -74,9 +88,9 @@
 %
 \usepackage[labelfont=bf]{caption}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *****************************************************************************
 % LITERATURA 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *****************************************************************************
 \usepackage[backend=biber, sortcites]{biblatex}
 
 % potrebno za deljenje dolgih URL naslovov
@@ -87,10 +101,9 @@
 \addbibresource{literatura.bib}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *****************************************************************************
 % ZAČETEK VSEBINE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% *****************************************************************************
 \begin{document}
 
 % *********************

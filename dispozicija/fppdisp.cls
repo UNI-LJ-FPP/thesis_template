@@ -1,4 +1,4 @@
-% **********************************************************************
+% *****************************************************************************
 % Copyright 2025 ULFPP
 
 % Author: Aleksander Sandro GRM @fpp.uni-lj.si
@@ -6,18 +6,18 @@
 %              class template.
 % Version: 1.0
 % Date: 22/11/2025
-% **********************************************************************
-
+%
+% 
+% !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
+%
+% *****************************************************************************
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fppdisp}[2025/11/21 Dispozicija zaključnega dela na FPP]
 
-% ******************************************************************
-% !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
-% ******************************************************************
 
-% **********************************
-% *** Nalaganje dodatnih paketov *** 
-% **********************************
+% *****************************************************************************
+% Nalaganje dodatnih paketov *** 
+% *****************************************************************************
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
@@ -35,10 +35,7 @@
 \RequirePackage{tabularray}
 \RequirePackage{xcolor}
 
-%\definecolor{linkcolor}{RGB}{0,0,0}
-%\definecolor{linkcolor}{RGB}{0,84,147}
-
-% ******************************************************************
+% *****************************************************************************
 
 \SetupKeyvalOptions{
 	family=fppdisp,
@@ -87,21 +84,22 @@
 \def\fppdisp@SMER@default{DefaultValue}
 
 \ProcessKeyvalOptions*
-% ******************************************************************
+% *****************************************************************************
 
 \LoadClass[12pt,a4paper]{article}
 \RequirePackage[slovene]{babel}
 
-\iffppdisp@SMERgiven
-	\typeout{SMER flag true; value=\fppdisp@SMER}
-\else
-	\typeout{SMER flag false; value=\fppdisp@SMER}
-\fi
+% Debug: check SMER status
+%\iffppdisp@SMERgiven
+%	\typeout{SMER flag true; value=\fppdisp@SMER}
+%\else
+%	\typeout{SMER flag false; value=\fppdisp@SMER}
+%\fi
 
 
-% ******************************************************************
-% *** Dimenzije strani
-% ******************************************************************
+% *****************************************************************************
+% Dimenzije strani
+% *****************************************************************************
 
 \textwidth 15cm
 \textheight 24cm
@@ -172,25 +170,17 @@
 	\end{center}
 }
 
-% ******************************************************************
-
-
-% ******************************************************************
-%                *** Izdelava PDF/A dokument ***
-% ******************************************************************
-%
-% pdfLatex generira navaden PDF, ki ga je potrebno pretvorit v PFD/A
-%
-% pretvorba v PDF/A online: 
-%           https://www.pdfforge.org/online/en/pdf-to-pdfa
-% 
-% validacija PDF/A: 
-%           https://www.pdfforge.org/online/en/validate-pdfa
-%
-% ******************************************************************
+% *****************************************************************************
 
 % potrebno za izdelavo vseh hyper metapodatkov
-\RequirePackage[hidelinks]{hyperref}
+%\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[
+	bookmarksopen, bookmarksdepth=3, 
+	colorlinks=true,
+	linkcolor=blue, anchorcolor=black, citecolor=green, filecolor=red, 
+	menucolor=blue, runcolor=red, urlcolor=blue,
+	pdfencoding=auto, breaklinks=true, psdextra]
+{hyperref}
 
 
 % *** izdelava tesesa dokumenta ***
@@ -199,12 +189,7 @@
 	% Doda metadata informacijo za metadata podatke v PDF/A
 	\hypersetup{
 		pdfauthor={\fppdisp@AVTOR},
-		pdftitle={\fppdisp@NASLOV},
-		bookmarksopen, bookmarksdepth=3, 
-		%colorlinks,
-		%linkcolor={RGB}{0,0,0}, anchorcolor={RGB}{0,0,0}, citecolor={RGB}{0,0,0}, filecolor={RGB}{0,0,0},
-		%menucolor={RGB}{0,0,0}, runcolor={RGB}{0,0,0}, urlcolor={RGB}{0,0,0}, pdfencoding=auto,
-		%breaklinks=true, psdextra
+		pdftitle={\fppdisp@NASLOV}
 	}
 	
 	% Avoid duplicate 'page.1' by disabling page anchors on title/front matter
@@ -236,7 +221,7 @@
 % -----------------------------------------------
 \RequirePackage{bookmark} % better outlines; fewer reruns
 
-% ********************
-% *** End of class ***
-% ********************
+% *****************************************************************************
+%                             *** End of class ***
+% *****************************************************************************
 
