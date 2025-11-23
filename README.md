@@ -2,6 +2,7 @@
 
 Repozitorij vsebuje LaTeX predloge za izdelavo zaključnega dela in poročila. Predloge se nahajajo v ločenih mapah
 
+ - ```dispozicija```: predloga za izdelavo dispozicije zaključnega dela (diplomska/magistrska naloga)
  - ```thesis```: predloga za izdelavo zaključnega dela (diplomska/magistrska naloga)
  - ```report```: predloga za izdelavo poročila
 
@@ -46,6 +47,6 @@ V datoteki ```literatura.bib``` imate lahko bistveno več vpisane literature, ko
 
 **Pomembno**
 
-Vedno pričnete najprej z izbiro ```programa/smeri```, kjer imate šest možnosti. Nato pa nadaljujete z vpisaovanjem vaših podatkov v sekcijo ```METADATA```, ki je nad ```\begin{document}```.
+Vedno pričnete najprej z izbiro ```programa/smeri```, kjer imate šest možnosti. Nato pa nadaljujete z vpisovanjem vaših podatkov v sekcijo ```METADATA```, ki je nad ```\begin{document}```.
 
 Če želite imeti verzijo naloge za online objavo, morate izbrisati ključ ```tisk``` v določitvi ```\documentclass```!
