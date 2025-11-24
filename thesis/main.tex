@@ -11,7 +11,14 @@
 %       
 %   Predloga je narejena za prevajanje s poljubnim prevajalnikom:
 %        - pdflatex, xelatex, luatex
-%   kjer je potrebno uporabiti biber ukaz za izdelavo bibliografije !!!
+%
+%   Za izdelavo bibliografije kjer je potrebno uporabiti ukaz biber!
+%
+%   Potek prevajanja na svojem računalniku:
+%     1. poženem xelatex main
+%     2. poženem biber main
+%     3. poženem 2x xelatex main
+%
 % ----------------------------------------------------------------------
 %
 %                *** Izdelava PDF/A dokument ***
@@ -41,43 +48,38 @@
 %
 %  primer: \documentclass[pomnav,SMER=splošna]{fppdisp} 
 %
+% ----------------------------------------------------------------------------
 %  - pomnav:   pomorstvo vsš, 1. stopnja, navtika 
-%      potrebno dodati še SMER={splošna ali vojaška} 
+%      potrebno je izbrati pravo SMER={splošna ali vojaška} 
 %   
 %  - pomstr:   pomorstvo vsš, 1. stopnja, pomorsko strojništvo
-%      potrebno dodati še SMER={splošna ali vojaška}  
+%      potrebno je izbrati pravo SMER={splošna ali vojaška}   
 %   
-%  - pom2:     pomorstvo, 2. stopnja
-%      izbriši opcijo SMER v \setkeys{fppdisp}
+%  - pom2:     pomorstvo, 2. stopnja, ni smeri
 %
-%  - promtpl:  promet uni, 1. stopnja, TPL
-%      izbriši opcijo SMER v \setkeys{fppdisp}
+%  - promtpl:  promet uni, 1. stopnja, TPL, ni smeri
 %
 %  - prompttl: promet vsš, 1. stopnja, PTTL
-%      potrebno dodati še SMER={splošna ali vojaška}
+%      potrebno je izbrati pravo SMER={splošna ali vojaška} 
 %
-%  - prom2:    promet, 2. stopnja
-%      izbriši opcijo SMER v \setkeys{fppdisp}
+%  - prom2:    promet, 2. stopnja, ni smeri     
+% ----------------------------------------------------------------------------
+%
+% !!! Izberi ustrezen program in ustrezno smer, če je v programu !!!
 %
 % *** Pomorstvo ***
 \documentclass[pomnav,SMER=splošna]{fppthesis}
 %\documentclass[pomstr,SMER=splošna]{fppthesis}
 %\documentclass[pom2]{fppthesis}
+%
 % *** Promet ***
 %\documentclass[prompttl,SMER=splošna]{fppthesis}
 %\documentclass[promtpl]{fppthesis}
 %\documentclass[prom2]{fppthesis}
 
-
 % *****************************************************************************
-%  Dodatni potrebni paketn in nove funkcionalnosti
-% 
-%  WARNING: minimalno, da v OverLeaf prevede v kratkem času. Če boste dodali
-%          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
-% 
+%  Dodatne nastavitve
 % *****************************************************************************
-\usepackage{enumitem}   % okolje za naštevanje
-\usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
 
 % *** Caption to be bold face ***
 \usepackage[labelfont=bf]{caption}
@@ -105,6 +107,23 @@
 % ime datoteke, ki vsebuje navedeno literaturo
 \addbibresource{literatura.bib}
 
+
+% *****************************************************************************
+%  Dodatni potrebni paketi in nove funkcionalnosti
+% 
+%  WARNING: minimalno, da v OverLeaf prevede v kratkem času. Če boste dodali
+%          preveč paketov, OverLeaf ne bo pravočasno prevedel!      
+% 
+% *****************************************************************************
+\usepackage{enumitem}   % okolje za naštevanje
+\usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ***************** Od tukaj naprej je vnos študenta **************************
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % *****************************************************************************
 %  Metapodatki - Potreben vnos pravilnih podatkov. Vsi podatki so NUJNI!
