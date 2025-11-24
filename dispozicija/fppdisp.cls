@@ -2,40 +2,38 @@
 % Copyright 2025 ULFPP
 
 % Author: Aleksander Sandro GRM @fpp.uni-lj.si
-% Description: This is an official latex ULFPP thesis disposition
-%              class template.
-% Version: 1.0
-% Date: 22/11/2025
-%
-% 
-% !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
-%
+% Description: This is an official latex ULFPP thesis disposition class template.
+% Version: 2.0
+% Date: 24/11/2025
 % *****************************************************************************
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fppdisp}[2025/11/21 Dispozicija zaključnega dela na FPP]
-
+\ProvidesClass{fppdisp}[2025/11/24 Zaključno delo na ULFPP]
 
 % *****************************************************************************
 % Nalaganje dodatnih paketov *** 
 % *****************************************************************************
 
-\RequirePackage[utf8]{inputenc}
+\RequirePackage{iftex} % Detect compile engine; if pdflatex
+\ifPDFTeX
 \RequirePackage[T1]{fontenc}
-\RequirePackage[slovene]{babel}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage{lmodern}
+\fi
 % **********************************
 \RequirePackage{etoolbox}
 \RequirePackage{ifthen}
 \RequirePackage{kvoptions}
 \RequirePackage{makeidx}
 \RequirePackage{setspace}
+\RequirePackage{tabularray}
+\UseTblrLibrary{booktabs}
 % **********************************
 \RequirePackage{amsfonts,amsmath,amssymb,amsthm}
 \RequirePackage{graphicx}
-\RequirePackage{tabularray}
 \RequirePackage{xcolor}
-
+\RequirePackage[slovene]{babel}
 % *****************************************************************************
+
 
 \SetupKeyvalOptions{
 	family=fppdisp,
@@ -48,8 +46,16 @@
 \DeclareStringOption{AVTOR}
 \DeclareStringOption{STEVILKA}
 \DeclareStringOption{MENTOR}
+\DeclareStringOption{LEKTOR}
 \DeclareStringOption{LETO}
 \DeclareStringOption{MESEC}
+
+% *** Imena naloge ***
+\newcommand{\fppdisp@diplomskaNaloga}{DIPLOMSKA NALOGA}
+\newcommand{\fppdisp@diplomaThesis}{DIPLOMA THESIS}
+\newcommand{\fppdisp@magistrskaNaloga}{MAGISTRSKA NALOGA}
+\newcommand{\fppdisp@masterThesis}{MASTER THESIS}
+
 
 % *** aliasi za program študija ***
 \DeclareVoidOption{pomnav}{
@@ -84,10 +90,12 @@
 \def\fppdisp@SMER@default{DefaultValue}
 
 \ProcessKeyvalOptions*
-% *****************************************************************************
 
-\LoadClass[12pt,a4paper]{article}
+
+% *****************************************************************************
+\LoadClass[12pt,a4paper,twoside]{article}
 \RequirePackage[slovene]{babel}
+
 
 % Debug: check SMER status
 %\iffppdisp@SMERgiven
@@ -117,7 +125,8 @@
 	\begin{center}
 		UNIVERZA V LJUBLJANI\\[1mm]
 		FAKULTETA ZA POMORSTVO IN PROMET
-		\\[5cm]
+		
+		\vskip 50mm
 		
 		{\Large
 			\doublespacing
@@ -128,7 +137,12 @@
 		\vskip 20mm
 		
 		{\large
-			\textbf{Dispozicija zaklju\v{c}nega dela}\\[20mm]
+			\textbf{Dispozicija zaklju\v{c}nega dela}
+		}
+		
+		\vskip 20mm
+		
+		{\large
 			\fppdisp@AVTOR
 		}
 	\end{center}

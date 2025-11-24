@@ -3,13 +3,15 @@
 
 % Author: A.S.Grm
 % Description: This is an official LaTeX ULFPP thesis disposition template.
-% Version: 1.0
-% Date: 22/11/2025
+% Version: 2.0
+% Date: 25/11/2025
 %
 % ----------------------------------------------------------------------
 %                             !!! POMEMBNO !!!
 %       
-%   Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
+%   Predloga je narejena za prevajanje s poljubnim prevajalnikom:
+%        - pdflatex, xelatex, luatex
+%   kjer je potrebno uporabiti biber ukaz za izdelavo bibliografije !!!
 % ----------------------------------------------------------------------
 %
 %                *** Izdelava PDF/A dokument ***
@@ -25,7 +27,12 @@
 %
 % *****************************************************************************
 
-% Najprej je potrebno določit deklaracijo študija v 
+
+% *****************************************************************************
+%
+%              !!! IZBIRA USTREZNEGA PROGRAMA in/ali SMERI !!!
+%
+%  Najprej je potrebno določit deklaracijo študija v 
 %
 %    \documentclass[<program študija>,<smer>]{fppdisp}
 %
@@ -53,8 +60,8 @@
 %      izbriši opcijo SMER v \setkeys{fppdisp}
 %
 % *** Pomorstvo ***
-%\documentclass[pomnav,SMER=splošna]{fppdisp}
-\documentclass[pomstr,SMER=splošna]{fppdisp}
+\documentclass[pomnav,SMER=splošna]{fppdisp}
+%\documentclass[pomstr,SMER=splošna]{fppdisp}
 %\documentclass[pom2]{fppdisp}
 % *** Promet ***
 %\documentclass[prompttl,SMER=splošna]{fppdisp}
@@ -80,13 +87,21 @@
 % 
 % *****************************************************************************
 \usepackage{enumitem}   % okolje za naštevanje
-\usepackage{siunitx}        % dodatno okolje za pravilno pisanje števil z enoto
-\usepackage{csquotes}    % biber potrebuje
+\usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
+\usepackage{csquotes}   % biber potrebuje
 
-%
 % *** Caption to be bold face ***
-%
 \usepackage[labelfont=bf]{caption}
+
+% *** Serif font za poglavja ***
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\sffamily\Large\bfseries}
+{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\sffamily\large\bfseries}
+{\thesubsection}{1em}{}
+
 
 % *****************************************************************************
 % LITERATURA 
@@ -213,15 +228,14 @@ Tukaj se pripravi predvideno kazalo naloge, recimo nekako takole kakor je spodaj
 	\item Diskusija in zaključek
 \end{enumerate}
 
+
 % ******************
 % *** Literatura ***
 % ******************
 \cleardoublepage
 \singlespacing
-\section{Literatura}
-
-Literatura se bo sama izpisala, to je tista, ki ste jo uporabili v izdelavi dispozicije. Če bo še kakšna dodatna v nalogi to ni problem.
-
+\addcontentsline{toc}{section}{Literatura}
 \printbibliography
+
 
 \end{document}
