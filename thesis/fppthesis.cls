@@ -3,15 +3,11 @@
 
 % Author: Aleksander Sandro GRM @fpp.uni-lj.si
 % Description: This is an official latex ULFPP thesis class template.
-% Version: 1.0
-% Date: 22/11/2025
-%
-% 
-% !!! POMEMBNO: class je narejen za prevajanje z pdflatex ukazom !!!
-%
+% Version: 2.0
+% Date: 24/11/2025
 % *****************************************************************************
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fppthesis}[2025/11/21 Zaključno delo na FPP]
+\ProvidesClass{fppthesis}[2025/11/24 Zaključno delo na ULFPP]
 
 % *****************************************************************************
 % Nalaganje dodatnih paketov *** 
