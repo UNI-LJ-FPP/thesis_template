@@ -107,8 +107,9 @@
 \def\fppthesis@SMER@default{DefaultValue}
 
 \ProcessKeyvalOptions*
-% *****************************************************************************
 
+
+% *****************************************************************************
 \LoadClass[12pt,a4paper,twoside]{article}
 \RequirePackage[slovene]{babel}
 
@@ -152,6 +153,7 @@
 	\renewcommand{\listfigurename}{Kazalo slik}%
 }
 
+
 % *****************************************************************************
 % Dimenzije strani
 % *****************************************************************************
@@ -164,8 +166,8 @@
 \addtolength{\footskip}{10pt}
 %\overfullrule=15pt % v primeru če gre tekst čez stran ga obarva črno
 
-% *****************************************************************************
 
+% *****************************************************************************
 \newcommand{\fppthesis@frontpages}{
 	\pagestyle{empty}
 	%
@@ -397,9 +399,9 @@
 	\end{center}
 }
 
-% *****************************************************************************
 
-% potrebno za izdelavo vseh hyper metapodatkov
+% *****************************************************************************
+% potrebno za izdelavo vseh hyper metapodatkov za PDF/A
 %\RequirePackage[hidelinks]{hyperref}
 \RequirePackage[
 bookmarksopen, bookmarksdepth=3, 
