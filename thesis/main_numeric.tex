@@ -9,7 +9,9 @@
 % ----------------------------------------------------------------------
 %                             !!! POMEMBNO !!!
 %       
-%   Predloga je narejena za prevajanje s pdflatex in biber ukazom !!!
+%   Predloga je narejena za prevajanje s poljubnim prevajalnikom:
+%        - pdflatex, xelatex, luatex
+%   kjer je potrebno uporabiti biber ukaz za izdelavo bibliografije !!!
 % ----------------------------------------------------------------------
 %
 %                *** Izdelava PDF/A dokument ***
@@ -57,9 +59,9 @@
 %      izbriši opcijo SMER v \setkeys{fppdisp}
 %
 % *** Pomorstvo ***
-%\documentclass[pomnav,SMER=splošna]{fppthesis}
+\documentclass[pomnav,SMER=splošna]{fppthesis}
 %\documentclass[pomstr,SMER=splošna]{fppthesis}
-\documentclass[pom2]{fppthesis}
+%\documentclass[pom2]{fppthesis}
 % *** Promet ***
 %\documentclass[prompttl,SMER=splošna]{fppthesis}
 %\documentclass[promtpl]{fppthesis}
@@ -73,17 +75,12 @@
 % 
 % *****************************************************************************
 \usepackage{enumitem}   % okolje za naštevanje
-\usepackage{siunitx}        % dodatno okolje za pravilno pisanje števil z enoto
-\usepackage{csquotes}    % biber potrebuje
+\usepackage{siunitx}    % dodatno okolje za pravilno pisanje števil z enoto
 
-%
 % *** Caption to be bold face ***
-%
 \usepackage[labelfont=bf]{caption}
 
-%
 % *** Serif font za poglavja ***
-%
 \usepackage{titlesec}
 \titleformat{\section}
 {\normalfont\sffamily\Large\bfseries}
@@ -95,7 +92,9 @@
 % *****************************************************************************
 %  Literatura
 % *****************************************************************************
-\usepackage[backend=biber, sortcites]{biblatex}
+\usepackage{csquotes}   % biber potrebuje
+\usepackage[backend=biber,sortcites]{biblatex}
+
 
 % potrebno za deljenje dolgih URL naslovov
 \setcounter{biburllcpenalty}{7000}

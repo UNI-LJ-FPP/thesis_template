@@ -13,12 +13,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fppthesis}[2025/11/21 Zaključno delo na FPP]
 
-
 % *****************************************************************************
 % Nalaganje dodatnih paketov *** 
 % *****************************************************************************
 
-\RequirePackage{iftex} % Detect compile engine
+\RequirePackage{iftex} % Detect compile engine; if pdflatex
 \ifPDFTeX
 	\RequirePackage[T1]{fontenc}
 	\RequirePackage[utf8]{inputenc}
@@ -30,13 +29,15 @@
 \RequirePackage{kvoptions}
 \RequirePackage{makeidx}
 \RequirePackage{setspace}
+\RequirePackage{tabularray}
+\UseTblrLibrary{booktabs}
 % **********************************
 \RequirePackage{amsfonts,amsmath,amssymb,amsthm}
 \RequirePackage{graphicx}
-\RequirePackage{tabularray}
 \RequirePackage{xcolor}
 \RequirePackage[slovene]{babel}
 % *****************************************************************************
+
 
 \SetupKeyvalOptions{
 	family=fppthesis,
