@@ -18,10 +18,12 @@
 % Nalaganje dodatnih paketov *** 
 % *****************************************************************************
 
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[slovene]{babel}
-\RequirePackage{lmodern}
+\RequirePackage{iftex} % Detect compile engine
+\ifPDFTeX
+	\RequirePackage[T1]{fontenc}
+	\RequirePackage[utf8]{inputenc}
+	\RequirePackage{lmodern}
+\fi
 % **********************************
 \RequirePackage{etoolbox}
 \RequirePackage{ifthen}
@@ -33,7 +35,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{tabularray}
 \RequirePackage{xcolor}
-
+\RequirePackage[slovene]{babel}
 % *****************************************************************************
 
 \SetupKeyvalOptions{
@@ -308,11 +310,12 @@
 				row{all}={white},
 				rowsep=3pt
 			}
-			% *** začetek podatko ***
 			\textit{Mentor}:            & \fppthesis@MENTOR \\
+			\textit{Študent}:           & \fppthesis@AVTOR \\
+			\textit{Lektor}:            & \fppthesis@LEKTOR \\
+			\textit{Vpisna številka}:   & \fppthesis@STEVILKA \\
 			\textit{Študijski program}: & \fppthesis@PROGRAM \\
-			\textit{Smer}:              & \fppthesis@SMER \\
-			\textit{Vpisna številka}:   & \fppthesis@STEVILKA
+			\textit{Smer študija}:      & \fppthesis@SMER
 		\end{tblr}
 		\else
 		\begin{tblr}{
@@ -320,10 +323,11 @@
 				row{all}={white},
 				rowsep=3pt
 			}
-			% *** začetek podatko ***
 			\textit{Mentor}:            & \fppthesis@MENTOR \\
-			\textit{Študijski program}: & \fppthesis@PROGRAM \\
-			\textit{Vpisna številka}:   & \fppthesis@STEVILKA
+			\textit{Študent}:           & \fppthesis@AVTOR \\
+			\textit{Lektor}:            & \fppthesis@LEKTOR \\
+			\textit{Vpisna številka}:   & \fppthesis@STEVILKA \\
+			\textit{Študijski program}: & \fppthesis@PROGRAM
 		\end{tblr}
 		\fi
 	\end{center}
