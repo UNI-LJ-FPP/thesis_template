@@ -55,42 +55,49 @@
 \DeclareStringOption{LETO}
 \DeclareStringOption{MESEC}
 
+% *** Imena naloge ***
+\newcommand{\fppthesis@diplomskaNaloga}{DIPLOMSKA NALOGA}
+\newcommand{\fppthesis@diplomaThesis}{DIPLOMA THESIS}
+\newcommand{\fppthesis@magistrskaNaloga}{MAGISTRSKA NALOGA}
+\newcommand{\fppthesis@masterThesis}{MASTER THESIS}
+
+
 % *** aliasi za program študija ***
 \DeclareVoidOption{pomnav}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{Visokošolski strokovni študijski program 1. stopnje \newline Navtika}
-	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@diplomskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@diplomaThesis}
 }
 \DeclareVoidOption{pomstr}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{Visokošolski strokovni študijski program 1. stopnje \newline Pomorsko strojništvo}
-	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@diplomskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@diplomaThesis}
 }
 \DeclareVoidOption{promtpl}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{Univerzitetni študijski program 1. stopnje \newline Tehnologija prometa in logistika}
-	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@diplomskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@diplomaThesis}
 }
 \DeclareVoidOption{prompttl}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{Visokošolski strokovni študijski program 1. stopnje \newline Prometna tehnologija in transportna logistika}
-	\newcommand{\fppthesis@imenalogeSLO}{Diplomska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Diploma thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@diplomskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@diplomaThesis}
 }
 \DeclareVoidOption{pom2}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{2. stopenjski študijski program Pomorstvo}
-	\newcommand{\fppthesis@imenalogeSLO}{Magistrska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Master thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@magistrskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@masterThesis}
 }
 \DeclareVoidOption{prom2}{
 	\renewcommand{\fppthesis@PROGRAM}
 	{2. stopenjski študijski program Promet}
-	\newcommand{\fppthesis@imenalogeSLO}{Magistrska naloga}
-	\newcommand{\fppthesis@imenalogeANG}{Master thesis}
+	\newcommand{\fppthesis@imenalogeSLO}{\fppthesis@magistrskaNaloga}
+	\newcommand{\fppthesis@imenalogeANG}{\fppthesis@masterThesis}
 }
 
 % --- Add a flag to detect explicit user input for SMER ---
@@ -111,6 +118,7 @@
 %\else
 %	\typeout{SMER flag false; value=\fppthesis@SMER}
 %\fi
+
 
 \def\@zahvala{Ni vnešene zahvale}
 \newcommand{\zahvala}[1]{
@@ -211,25 +219,25 @@
 		
 		\vskip 2cm 
 		
-		\doublespacing		
-		{\Large
-			\textbf{\MakeUppercase{\fppthesis@NASLOVSLO}}	
+		\singlespacing
+		{\normalsize
+			\textsc{\fppthesis@AVTOR}
 		}
 		
 		\vskip 2cm
 		
-		\singlespacing
-		{\normalsize
-			\fppthesis@AVTOR
+		\doublespacing		
+		{\Large
+			\textbf{\MakeUppercase{\fppthesis@NASLOVSLO}}	
 		}
-		\end{center}
+	\end{center}
 		
-		\vfill
+	\vfill
 		
-		\begin{center}
+	\begin{center}
 		\noindent
 		Portorož, \fppthesis@MESEC~\fppthesis@LETO
-		\end{center}
+	\end{center}
 }
 
 % *** Naslovna stran ANG  ***
@@ -250,16 +258,16 @@
 		
 		\vskip 2cm 
 		
-		\doublespacing		
-		{\Large
-			\textbf{\MakeUppercase{\fppthesis@NASLOVANG}}	
+		\singlespacing
+		{\normalsize
+			\textsc{\fppthesis@AVTOR}
 		}
 		
 		\vskip 2cm
 		
-		\singlespacing
-		{\normalsize
-			\fppthesis@AVTOR
+		\doublespacing		
+		{\Large
+			\textbf{\MakeUppercase{\fppthesis@NASLOVANG}}	
 		}
 	\end{center}
 	
@@ -292,13 +300,6 @@
 		\doublespacing		
 		{\Large
 			\textbf{\MakeUppercase{\fppthesis@NASLOVSLO}}	
-		}
-		
-		\vskip 2cm
-		
-		\singlespacing
-		{\normalsize
-			\fppthesis@AVTOR
 		}
 	\end{center}
 	
@@ -415,7 +416,8 @@ pdfencoding=auto, breaklinks=true, psdextra]
 	% Doda metadata informacijo za metadata podatke v PDF/A
 	\hypersetup{
 		pdfauthor={\fppthesis@AVTOR},
-		pdftitle={\fppthesis@NASLOVSLO}
+		pdftitle={\fppthesis@NASLOVSLO},
+		pdfkeywords={\@kljucnebesedeSLO}
 	}
 	
 	% Avoid duplicate 'page.1' by disabling page anchors on title/front matter
